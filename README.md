@@ -1,0 +1,2 @@
+# .NETCore
+.Net Core exp.
