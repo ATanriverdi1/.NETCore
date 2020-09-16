@@ -1,0 +1,28 @@
+<div class="navbar bg-danger navbar-dark navbar-expand-sm">
+        <div class="container">
+            <a href="/" class="navbar-brand">MarkettingApp</a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="/ürünler" class="nav-link">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="admin" asp-action="createproduct" class="nav-link">Add Product</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="admin" asp-action="productlist" class="nav-link">Aproduct</a>
+                </li>
+            </ul>
+
+            <form action="/shop/search" class="form-inline my-2 my-lg-0">
+                <input name="q" type="text" class="form-control mr-sm-2" placeholder="Search">
+                <button type="submit" class="btn btn-outline-light my-2 my-sm-0">Search</button>
+            </form>
+
+        </div>
+</div>

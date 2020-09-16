@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "krWG+aybrBjxIlnvlJGIqf/JJ9sf88cYd5d3vQKCbZya1N3XeLzh/GTT329V4+LoHFvZZ7PGtJMtoX7L9uD9Tw==",
+  "success": true,
+  "projectFilePath": "D:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.Entity\\marketingapp.entity.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alihan\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\alihan\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

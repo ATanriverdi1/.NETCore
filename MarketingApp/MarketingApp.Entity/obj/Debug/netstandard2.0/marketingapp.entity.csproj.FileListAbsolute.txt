@@ -1,0 +1,9 @@
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Entity\bin\Debug\netstandard2.0\marketingapp.entity.deps.json
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Entity\bin\Debug\netstandard2.0\marketingapp.entity.dll
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Entity\bin\Debug\netstandard2.0\marketingapp.entity.pdb
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\marketingapp.entity.csprojAssemblyReference.cache
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\marketingapp.entity.AssemblyInfoInputs.cache
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\marketingapp.entity.AssemblyInfo.cs
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\marketingapp.entity.csproj.CoreCompileInputs.cache
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\marketingapp.entity.dll
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\marketingapp.entity.pdb

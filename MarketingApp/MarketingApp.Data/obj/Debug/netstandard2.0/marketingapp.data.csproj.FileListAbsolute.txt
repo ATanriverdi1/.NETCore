@@ -1,0 +1,12 @@
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Data\bin\Debug\netstandard2.0\marketingapp.data.deps.json
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Data\bin\Debug\netstandard2.0\marketingapp.data.dll
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Data\bin\Debug\netstandard2.0\marketingapp.data.pdb
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Data\bin\Debug\netstandard2.0\marketingapp.entity.dll
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Data\bin\Debug\netstandard2.0\marketingapp.entity.pdb
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.csprojAssemblyReference.cache
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.AssemblyInfoInputs.cache
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.AssemblyInfo.cs
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.csproj.CoreCompileInputs.cache
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.csproj.CopyComplete
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.dll
+D:\MyOffice\ASP.Net\.NetCore\M.V.C\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.pdb
