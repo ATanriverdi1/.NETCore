@@ -28,20 +28,41 @@ using MarketingApp.WebUI;
 #nullable disable
 #nullable restore
 #line 3 "D:\git\.NETCore\MarketingApp\MarketingApp.WebUI\Views\_ViewImports.cshtml"
-using MarketingApp.WebUI.ViewModel;
+using MarketingApp.WebUI.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 4 "D:\git\.NETCore\MarketingApp\MarketingApp.WebUI\Views\_ViewImports.cshtml"
+using MarketingApp.WebUI.ViewModel;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "D:\git\.NETCore\MarketingApp\MarketingApp.WebUI\Views\_ViewImports.cshtml"
 using MarketingApp.Entity;
 
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "D:\git\.NETCore\MarketingApp\MarketingApp.WebUI\Views\_ViewImports.cshtml"
+using MarketingApp.WebUI.ViewModel.Admin;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "D:\git\.NETCore\MarketingApp\MarketingApp.WebUI\Views\_ViewImports.cshtml"
+using Newtonsoft.Json;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"056e6e73a176e2a3dc617d976b64306535f6c315", @"/Views/Shared/_navbar.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"49763ac7f13dc37b45465f2f774ad809d0067199", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"78a7cb6cc489e7604f0d3d38b7b2491b40a8204b", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__navbar : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "admin", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -91,7 +112,7 @@ using MarketingApp.Entity;
             BeginWriteAttribute("href", " href=\"", 515, "\"", 522, 0);
             EndWriteAttribute();
             WriteLiteral(" class=\"nav-link\">Orders</a>\r\n                </li>\r\n                <li class=\"nav-item\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "056e6e73a176e2a3dc617d976b64306535f6c3156634", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "056e6e73a176e2a3dc617d976b64306535f6c3157197", async() => {
                 WriteLiteral("Add Product");
             }
             );
@@ -110,7 +131,7 @@ using MarketingApp.Entity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </li>\r\n                <li class=\"nav-item\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "056e6e73a176e2a3dc617d976b64306535f6c3158171", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "056e6e73a176e2a3dc617d976b64306535f6c3158734", async() => {
                 WriteLiteral("Aproduct");
             }
             );
@@ -129,7 +150,7 @@ using MarketingApp.Entity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </li>\r\n            </ul>\r\n\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "056e6e73a176e2a3dc617d976b64306535f6c3159679", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "056e6e73a176e2a3dc617d976b64306535f6c31510242", async() => {
                 WriteLiteral("\r\n                <input name=\"q\" type=\"text\" class=\"form-control mr-sm-2\" placeholder=\"Search\">\r\n                <button type=\"submit\" class=\"btn btn-outline-light my-2 my-sm-0\">Search</button>\r\n            ");
             }
             );

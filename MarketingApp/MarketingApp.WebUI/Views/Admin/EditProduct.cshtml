@@ -1,0 +1,30 @@
+@model AdminProductModel
+
+<form asp-controller="Admin" asp-action="EditProduct" method="POST">
+  <input type="hidden" name="ProductId" value="@Model.ProductId">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label asp-for="ProductName"></label>
+      <input class="form-control" asp-for="ProductName">
+    </div>
+    <div class="form-group col-md-6">
+      <label asp-for="Url"></label>
+      <input class="form-control" asp-for="Url">
+    </div>
+  </div>
+  <div class="form-group">
+    <label asp-for="Description"></label>
+    <textarea class="form-control" asp-for="Description"></textarea>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label asp-for="ProductPrice"></label>
+      <input class="form-control" asp-for="ProductPrice">
+    </div>
+    <div class="form-group col-md-4">
+      <label asp-for="ImageUrl"></label>
+      <input class="form-control" asp-for="ImageUrl">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>

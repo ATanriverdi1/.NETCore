@@ -62,7 +62,7 @@ namespace MarketingApp.Business.Concrete
 
         public void Update(Product entity)
         {
-            throw new System.NotImplementedException();
+            _productRepository.Update(entity);
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "58+L63LaZmVKrlzqbmcxQCSphTQbZLW6ig6dzqL8h1H7Bi0ZVfVTJRw/FIQVNC8YugHKDDxTm+ZKwsjzixf7yg==",
+  "dgSpecHash": "KQEHx0xvLsKZ1Qk8ADwxVHUA1T3j389vD+S0MR1tfB6Om0kkzeOqC+Xr6HRH/0FH1S7jxKvklHQuVg4N8iV7Ow==",
   "success": true,
   "projectFilePath": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\MarketingApp.WebUI.csproj",
   "expectedPackageFiles": [
@@ -28,6 +28,7 @@
     "C:\\Users\\alihan\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.3\\microsoft.extensions.logging.abstractions.3.1.3.nupkg.sha512",
     "C:\\Users\\alihan\\.nuget\\packages\\microsoft.extensions.options\\3.1.3\\microsoft.extensions.options.3.1.3.nupkg.sha512",
     "C:\\Users\\alihan\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.3\\microsoft.extensions.primitives.3.1.3.nupkg.sha512",
+    "C:\\Users\\alihan\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\alihan\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.2\\sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\alihan\\.nuget\\packages\\sqlitepclraw.core\\2.0.2\\sqlitepclraw.core.2.0.2.nupkg.sha512",
     "C:\\Users\\alihan\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.2\\sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",

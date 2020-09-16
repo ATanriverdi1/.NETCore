@@ -28,20 +28,41 @@ using MarketingApp.WebUI;
 #nullable disable
 #nullable restore
 #line 3 "D:\git\.NETCore\MarketingApp\MarketingApp.WebUI\Views\_ViewImports.cshtml"
-using MarketingApp.WebUI.ViewModel;
+using MarketingApp.WebUI.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 4 "D:\git\.NETCore\MarketingApp\MarketingApp.WebUI\Views\_ViewImports.cshtml"
+using MarketingApp.WebUI.ViewModel;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "D:\git\.NETCore\MarketingApp\MarketingApp.WebUI\Views\_ViewImports.cshtml"
 using MarketingApp.Entity;
 
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "D:\git\.NETCore\MarketingApp\MarketingApp.WebUI\Views\_ViewImports.cshtml"
+using MarketingApp.WebUI.ViewModel.Admin;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "D:\git\.NETCore\MarketingApp\MarketingApp.WebUI\Views\_ViewImports.cshtml"
+using Newtonsoft.Json;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"101e29c025b7c28de6c86dbd7d29a3dfadd7316b", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"49763ac7f13dc37b45465f2f774ad809d0067199", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"78a7cb6cc489e7604f0d3d38b7b2491b40a8204b", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

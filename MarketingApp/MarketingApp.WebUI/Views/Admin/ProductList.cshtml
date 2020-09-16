@@ -9,6 +9,8 @@
             <td style="width: 100px;">Image</td>
             <td>Name</td>
             <td style="width: 20px;">Price</td>
+            <td style="width: 20px;">IsApproved</td>
+            <td style="width: 20px;">IsHomePage</td>
             <td style="width: 150px;"></td>
         </tr>
     </thead>
@@ -23,8 +25,32 @@
                     <td>@item.ProductName</td>
                     <td>@item.ProductPrice</td>
                     <td>
+                        @if (item.IsApproved)
+                        {
+                            <i class="fas fa-check-circle"></i>
+                        }
+                        else{
+                            <i class="fas fa-times-circle"></i>
+                        }
+                    </td>
+                    <td>
+                        @if (item.IsHomePage)
+                        {
+                            <i class="fas fa-check-circle"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-times-circle"></i>
+                        }
+                    </td>
+                    <td>
                         <a href="/admin/ürünler/@item.ProductId" class="btn btn-primary btn-sm mr-2">Edit</a>
-                        <a href="#" class="btn btn-danger btn-sm">delete</a>
+                        
+                        <form action="/admin/DeleteProduct" method="POST" style="display: inline;">
+                            <input type="hidden" name="ProductId" value="@item.ProductId">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+
                     </td>
                 </tr>
             }
