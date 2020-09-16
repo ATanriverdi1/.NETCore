@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\marketingapp.entity\\marketingapp.entity.csproj",
+      "projectUniqueName": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Entity\\marketingapp.entity.csproj",
       "projectName": "marketingapp.entity",
-      "projectPath": "D:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\marketingapp.entity\\marketingapp.entity.csproj",
+      "projectPath": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Entity\\marketingapp.entity.csproj",
       "packagesPath": "C:\\Users\\alihan\\.nuget\\packages\\",
-      "outputPath": "D:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\marketingapp.entity\\obj\\",
+      "outputPath": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Entity\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alihan\\AppData\\Roaming\\NuGet\\NuGet.Config",

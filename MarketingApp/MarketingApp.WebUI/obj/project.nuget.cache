@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Z+BKq3I2l7StwNsttLU7rM5jy94zwAgvEEOMAbfGtS1dh7CM660yUV7vM26rf9Ya7MXnd+CMRUBIKlBdeW2++g==",
+  "dgSpecHash": "58+L63LaZmVKrlzqbmcxQCSphTQbZLW6ig6dzqL8h1H7Bi0ZVfVTJRw/FIQVNC8YugHKDDxTm+ZKwsjzixf7yg==",
   "success": true,
-  "projectFilePath": "D:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\marketingapp.webui\\MarketingApp.WebUI.csproj",
+  "projectFilePath": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\MarketingApp.WebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alihan\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\alihan\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

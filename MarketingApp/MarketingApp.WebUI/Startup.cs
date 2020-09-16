@@ -49,6 +49,18 @@ namespace MarketingApp.WebUI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name:"adminproductlist",
+                    pattern:"admin/ürünler",
+                    defaults: new {controller="admin", action="ProductList"}
+                );
+
+                endpoints.MapControllerRoute(
+                    name:"HomePage",
+                    pattern:"Anasayfa",
+                    defaults: new {controller="Home", action="Index"}
+                );
+
+                endpoints.MapControllerRoute(
                     name:"search",
                     pattern:"search",
                     defaults: new {controller="shop", action="search"}

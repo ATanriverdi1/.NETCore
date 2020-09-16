@@ -1,5 +1,5 @@
 {
-  "FilePath": "d:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\MarketingApp.WebUI.csproj",
+  "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\MarketingApp.WebUI.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14409,68 +14409,73 @@
   "RootNamespace": "MarketingApp.WebUI",
   "Documents": [
     {
-      "FilePath": "d:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_header.cshtml",
-      "TargetPath": "Views\\Shared\\_header.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\Views\\Shop\\Details.cshtml",
-      "TargetPath": "Views\\Shop\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_noproduct.cshtml",
-      "TargetPath": "Views\\Shared\\_noproduct.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\Components\\Categories\\Default.cshtml",
-      "TargetPath": "Views\\Shared\\Components\\Categories\\Default.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_navbar.cshtml",
-      "TargetPath": "Views\\Shared\\_navbar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\Views\\home\\Index.cshtml",
-      "TargetPath": "Views\\home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_categories.cshtml",
-      "TargetPath": "Views\\Shared\\_categories.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_product.cshtml",
-      "TargetPath": "Views\\Shared\\_product.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\Views\\Shop\\List.cshtml",
-      "TargetPath": "Views\\Shop\\List.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_Layout.cshtml",
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\Views\\Shop\\Search.cshtml",
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_product.cshtml",
+      "TargetPath": "Views\\Shared\\_product.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Shop\\List.cshtml",
+      "TargetPath": "Views\\Shop\\List.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_navbar.cshtml",
+      "TargetPath": "Views\\Shared\\_navbar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Shop\\Details.cshtml",
+      "TargetPath": "Views\\Shop\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_categories.cshtml",
+      "TargetPath": "Views\\Shared\\_categories.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_header.cshtml",
+      "TargetPath": "Views\\Shared\\_header.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\Components\\Categories\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\Categories\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_noproduct.cshtml",
+      "TargetPath": "Views\\Shared\\_noproduct.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Shop\\Search.cshtml",
       "TargetPath": "Views\\Shop\\Search.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\home\\Index.cshtml",
+      "TargetPath": "Views\\home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Admin\\ProductList.cshtml",
+      "TargetPath": "Views\\Admin\\ProductList.cshtml",
       "FileKind": "mvc"
     }
   ],

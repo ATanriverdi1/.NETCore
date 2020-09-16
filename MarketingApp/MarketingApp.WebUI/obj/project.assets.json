@@ -1205,11 +1205,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\MarketingApp.WebUI.csproj",
+      "projectUniqueName": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\MarketingApp.WebUI.csproj",
       "projectName": "MarketingApp.WebUI",
-      "projectPath": "D:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\MarketingApp.WebUI.csproj",
+      "projectPath": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\MarketingApp.WebUI.csproj",
       "packagesPath": "C:\\Users\\alihan\\.nuget\\packages\\",
-      "outputPath": "D:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.WebUI\\obj\\",
+      "outputPath": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alihan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1225,11 +1225,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.Business\\marketingapp.Business.csproj": {
-              "projectPath": "D:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.Business\\marketingapp.Business.csproj"
+            "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Business\\marketingapp.Business.csproj": {
+              "projectPath": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Business\\marketingapp.Business.csproj"
             },
-            "D:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.Data\\marketingapp.data.csproj": {
-              "projectPath": "D:\\MyOffice\\ASP.Net\\.NetCore\\M.V.C\\MarketingApp\\MarketingApp.Data\\marketingapp.data.csproj"
+            "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Data\\marketingapp.data.csproj": {
+              "projectPath": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Data\\marketingapp.data.csproj"
             }
           }
         }

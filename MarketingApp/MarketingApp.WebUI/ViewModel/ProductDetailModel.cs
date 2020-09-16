@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using MarketingApp.Entity;
 
-namespace MarketingApp.WebUI.Models
+namespace MarketingApp.WebUI.ViewModel
 {
     public class ProductDetailModel
     {

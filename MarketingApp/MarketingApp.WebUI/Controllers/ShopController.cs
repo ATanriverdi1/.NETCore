@@ -1,7 +1,6 @@
 using System.Linq;
 using MarketingApp.Business.Abstract;
 using MarketingApp.Entity;
-using MarketingApp.WebUI.Models;
 using MarketingApp.WebUI.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
