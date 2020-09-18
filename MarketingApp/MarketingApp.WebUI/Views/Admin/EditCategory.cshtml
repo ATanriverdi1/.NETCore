@@ -1,0 +1,22 @@
+@model AdminCategoryModel
+
+<form asp-controller="Admin" asp-action="EditCategory" method="POST">
+    
+    <input type="hidden" name="CategoryId" value="@Model.CategoryId">
+    
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="CategoryName"></label>
+            <input class="form-control" asp-for="CategoryName">
+        </div> 
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="Url"></label>
+            <input class="form-control" asp-for="Url">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>

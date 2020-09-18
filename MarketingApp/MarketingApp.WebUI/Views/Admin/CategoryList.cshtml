@@ -1,0 +1,39 @@
+@model CategoryViewModel
+
+<h1>Admin Products</h1>
+<hr>
+<a asp-controller="admin" asp-action="CreateCategory" class="badge badge-primary mb-3">Yeni Kategori Ekle</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td style="width: 30px;">Id</td>
+            <td>Name</td>
+            <td style="width: 150px;"></td>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Categories.Count > 0)
+        {
+            @foreach (var item in Model.Categories)
+            {
+                <tr>
+                    <td>@item.CategoryId</td>
+                    <td>@item.CategoryName</td>
+                    <td>
+                        <a href="/admin/kategoriler/@item.CategoryId" class="btn btn-primary btn-sm mr-2">Edit</a>
+                        
+                        <form action="/admin/DeleteCategory" method="POST" style="display: inline;">
+                            <input type="hidden" name="categoryId" value="@item.CategoryId">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+
+                    </td>
+                </tr>
+            }
+        }
+        else
+            @await Html.PartialAsync("_noproduct")
+        
+    </tbody>
+</table>

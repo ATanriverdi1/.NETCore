@@ -14479,13 +14479,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Admin\\CategoryList.cshtml",
+      "TargetPath": "Views\\Admin\\CategoryList.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\home\\Index.cshtml",
       "TargetPath": "Views\\home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Admin\\CreateCategory.cshtml",
+      "TargetPath": "Views\\Admin\\CreateCategory.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Admin\\ProductList.cshtml",
       "TargetPath": "Views\\Admin\\ProductList.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Admin\\EditCategory.cshtml",
+      "TargetPath": "Views\\Admin\\EditCategory.cshtml",
       "FileKind": "mvc"
     }
   ],

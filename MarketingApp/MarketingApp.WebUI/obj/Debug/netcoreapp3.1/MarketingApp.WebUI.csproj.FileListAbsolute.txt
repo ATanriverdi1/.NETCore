@@ -231,3 +231,6 @@ D:\git\.NETCore\MarketingApp\MarketingApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Vi
 D:\git\.NETCore\MarketingApp\MarketingApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Admin\CreateProduct.cshtml.g.cs
 D:\git\.NETCore\MarketingApp\MarketingApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditProduct.cshtml.g.cs
 D:\git\.NETCore\MarketingApp\MarketingApp.WebUI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Admin\CategoryList.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Admin\CreateCategory.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditCategory.cshtml.g.cs

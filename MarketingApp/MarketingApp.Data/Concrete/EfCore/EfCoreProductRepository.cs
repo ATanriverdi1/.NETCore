@@ -20,7 +20,7 @@ namespace MarketingApp.Data.Concrete.EfCore
         {
             using(var _context = new MarketingContext())
             {
-                var products = _context.Products.Where(i=>i.IsApproved).AsQueryable();
+                var products = _context.Products.AsQueryable();
                 if (!string.IsNullOrEmpty(category))
                 {
                     products = products

@@ -10,11 +10,15 @@ namespace MarketingApp.WebUI.Controllers
 {
     public class AdminController : Controller
     {
+        private ICategoryService _categoryService;
         private IProductService _productService;
-        public AdminController(IProductService productService)
+
+        public AdminController(IProductService productService, ICategoryService categoryService)
         {
             this._productService = productService;
+            this._categoryService = categoryService;
         }
+
         public IActionResult ProductList()
         {
             var productListViewModel = new ProductListViewModel()
@@ -124,7 +128,108 @@ namespace MarketingApp.WebUI.Controllers
 
         //Kategori işlemleri
 
-              
+        //Categori List
+        public IActionResult CategoryList()
+        {
+            var categories = new CategoryViewModel(){
+                Categories = _categoryService.GetAll()
+            };
+            return View(categories);
+        }
 
+        //Create Category
+        [HttpGet]
+        public IActionResult CreateCategory()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateCategory(AdminCategoryModel adminCategoryModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var category = new Category()
+                {
+                    CategoryName = adminCategoryModel.CategoryName,
+                    Url = adminCategoryModel.Url
+                };
+                
+                _categoryService.Create(category);
+
+                var msg = new AlertMessage()
+                {
+                    Message = $"{category.CategoryName} isimli kategori eklendi.",
+                    AlertType = "success"
+                };
+                TempData["message"] = JsonConvert.SerializeObject(msg);
+
+                return RedirectToAction("CategoryList");
+            }
+
+            return View(adminCategoryModel);
+        }      
+
+        //Edit Category
+        [HttpGet]
+        public IActionResult EditCategory(int? id)
+        {
+            if (id == null)
+                return NotFound();
+            
+            var entity = _categoryService.GetById((int)id);
+            
+            if(entity == null)
+                return NotFound();
+            
+            var category = new AdminCategoryModel(){
+                CategoryId = entity.CategoryId,
+                CategoryName = entity.CategoryName,
+                Url = entity.Url
+            };
+
+            return View(category);
+        }
+
+        [HttpPost]
+        public IActionResult EditCategory(AdminCategoryModel adminCategoryModel)
+        {
+            var entity = _categoryService.GetById(adminCategoryModel.CategoryId);
+            
+            if(entity == null)
+                return NotFound();
+
+            entity.CategoryId = adminCategoryModel.CategoryId;
+            entity.CategoryName = adminCategoryModel.CategoryName;
+            entity.Url = adminCategoryModel.Url;
+
+            _categoryService.Update(entity);
+
+            var msg = new AlertMessage(){
+                Message = $"{entity.CategoryName} isimli kategori güncellendi.",
+                AlertType = "warning"
+            };
+
+            TempData["message"] = JsonConvert.SerializeObject(msg);
+
+            return RedirectToAction("CategoryList");    
+        }   
+
+
+        //Delete Category
+        public IActionResult DeleteCategory(int categoryId)
+        {
+            var entity = _categoryService.GetById(categoryId);
+            if (entity != null)
+            {
+                _categoryService.Delete(entity);
+            }
+
+            var msg = new AlertMessage(){
+                Message = $"{entity.CategoryName} isimli ürün kaldırıldı.",
+                AlertType = "danger"
+            };
+            TempData["message"] = JsonConvert.SerializeObject(msg);
+            return RedirectToAction("CategoryList");    
+        }
     }
 }
