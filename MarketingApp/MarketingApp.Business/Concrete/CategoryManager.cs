@@ -34,6 +34,11 @@ namespace MarketingApp.Business.Concrete
             return _categoryRepository.GetById(id);
         }
 
+        public Category GetByIdWithProduct(int categoryId)
+        {
+            return _categoryRepository.GetByIdWithProduct(categoryId);
+        }
+
         public void Update(Category entity)
         {
             _categoryRepository.Update(entity);

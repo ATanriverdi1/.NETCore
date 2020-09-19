@@ -1,3 +1,4 @@
+using System.Linq;
 using MarketingApp.Business.Abstract;
 using MarketingApp.Entity;
 using MarketingApp.WebUI.Models;
@@ -176,7 +177,7 @@ namespace MarketingApp.WebUI.Controllers
             if (id == null)
                 return NotFound();
             
-            var entity = _categoryService.GetById((int)id);
+            var entity = _categoryService.GetByIdWithProduct((int)id);
             
             if(entity == null)
                 return NotFound();
@@ -184,7 +185,8 @@ namespace MarketingApp.WebUI.Controllers
             var category = new AdminCategoryModel(){
                 CategoryId = entity.CategoryId,
                 CategoryName = entity.CategoryName,
-                Url = entity.Url
+                Url = entity.Url,
+                Products = entity.productCategories.Select(p=>p.Product).ToList()
             };
 
             return View(category);

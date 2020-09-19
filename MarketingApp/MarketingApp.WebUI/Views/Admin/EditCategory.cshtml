@@ -1,22 +1,86 @@
 @model AdminCategoryModel
 
-<form asp-controller="Admin" asp-action="EditCategory" method="POST">
-    
-    <input type="hidden" name="CategoryId" value="@Model.CategoryId">
-    
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label asp-for="CategoryName"></label>
-            <input class="form-control" asp-for="CategoryName">
-        </div> 
-    </div>
+<div class="row">
+<div class="col-md-4">
+    <form asp-controller="Admin" asp-action="EditCategory" method="POST">
 
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label asp-for="Url"></label>
-            <input class="form-control" asp-for="Url">
+        <input type="hidden" name="CategoryId" value="@Model.CategoryId">
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="CategoryName"></label>
+                <input class="form-control" asp-for="CategoryName">
+            </div> 
         </div>
-    </div>
 
-    <button type="submit" class="btn btn-primary">Kaydet</button>
-</form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Url"></label>
+                <input class="form-control" asp-for="Url">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+</div>
+<div class="col-md-8">
+    @if (Model.Products.Count > 0)
+    {
+        <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td style="width: 30px;">Id</td>
+                <td style="width: 100px;">Image</td>
+                <td>Name</td>
+                <td style="width: 20px;">Price</td>
+                <td style="width: 20px;">IsApproved</td>
+                <td style="width: 20px;">IsHomePage</td>
+                <td style="width: 150px;"></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+                    <td>@item.ProductId</td>
+                    <td><img src="~/images/@item.ImageUrl" width="80"></td>
+                    <td>@item.ProductName</td>
+                    <td>@item.ProductPrice</td>
+                    <td>
+                        @if (item.IsApproved)
+                        {
+                            <i class="fas fa-check-circle"></i>
+                        }
+                        else{
+                            <i class="fas fa-times-circle"></i>
+                        }
+                    </td>
+                    <td>
+                        @if (item.IsHomePage)
+                        {
+                            <i class="fas fa-check-circle"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-times-circle"></i>
+                        }
+                    </td>
+                    <td>
+                        <a href="/admin/ürünler/@item.ProductId" class="btn btn-primary btn-sm mr-2">Edit</a>
+                        
+                        <form action="/admin/DeleteProduct" method="POST" style="display: inline;">
+                            <input type="hidden" name="ProductId" value="@item.ProductId">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+        </table>
+    }
+    else
+        @await Html.PartialAsync("_noproduct")
+        
+</div>
+</div>

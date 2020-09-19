@@ -1,14 +1,23 @@
 using System.Collections.Generic;
+using System.Linq;
 using MarketingApp.Data.Abstract;
 using MarketingApp.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarketingApp.Data.Concrete.EfCore
 {
     public class EfCoreCategoryRepository : EfCoreGenericRepository<Category, MarketingContext>, ICategoryRepository
     {
-        public List<Category> GetPopularCategories()
+        public Category GetByIdWithProduct(int categoryId)
         {
-            throw new System.NotImplementedException();
+            using (var context = new MarketingContext())
+            {
+                return context.Categories
+                            .Where(c=>c.CategoryId == categoryId)
+                            .Include(pc=>pc.productCategories)
+                            .ThenInclude(p=>p.Product)
+                            .FirstOrDefault();
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ namespace MarketingApp.Business.Abstract
 {
     public interface ICategoryService
     {
+        Category GetByIdWithProduct(int categoryId);
         Category GetById(int id);
 
         List<Category> GetAll();
