@@ -40,6 +40,11 @@ namespace MarketingApp.Business.Concrete
             return _productRepository.GetById(id);
         }
 
+        public Product GetByIdWithCategory(int productId)
+        {
+            return _productRepository.GetByIdWithCategory(productId);
+        }
+
         public int GetCountByCategory(string category)
         {
             return _productRepository.GetCountByCategory(category);
@@ -63,6 +68,11 @@ namespace MarketingApp.Business.Concrete
         public void Update(Product entity)
         {
             _productRepository.Update(entity);
+        }
+
+        public void Update(Product entity, int[] categoryIds)
+        {
+            _productRepository.Update(entity,categoryIds);
         }
     }
 }

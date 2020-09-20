@@ -15,5 +15,7 @@ namespace MarketingApp.Business.Abstract
         void Update(Category entity);
         
         void Delete(Category entity);
+        
+        void DeleteProductFromCategory(int productId, int categoryId);
     }
 }

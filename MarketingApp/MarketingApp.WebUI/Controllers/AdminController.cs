@@ -20,6 +20,7 @@ namespace MarketingApp.WebUI.Controllers
             this._categoryService = categoryService;
         }
 
+        //ProductList
         public IActionResult ProductList()
         {
             var productListViewModel = new ProductListViewModel()
@@ -29,6 +30,7 @@ namespace MarketingApp.WebUI.Controllers
             return View(productListViewModel);
         }
 
+        //CreateProduct
         [HttpGet]
         public IActionResult CreateProduct()
         {
@@ -63,6 +65,7 @@ namespace MarketingApp.WebUI.Controllers
             return View(adminProduct);
         }
 
+        //EditProduct
         [HttpGet]
         public IActionResult EditProduct(int? id)
         {
@@ -70,7 +73,7 @@ namespace MarketingApp.WebUI.Controllers
             {
                 return NotFound();
             }
-            var entity = _productService.GetById((int)id);
+            var entity = _productService.GetByIdWithCategory((int)id);
             if (entity == null)
             {
                 return NotFound();
@@ -82,14 +85,17 @@ namespace MarketingApp.WebUI.Controllers
                 Url = entity.Url,
                 Description = entity.Description,
                 ProductPrice = entity.ProductPrice,
-                ImageUrl = entity.ImageUrl
+                ImageUrl = entity.ImageUrl,
+                SelectedCategories = entity.productCategories.Select(c=>c.Category).ToList()
             };
+
+            ViewBag.Categories = _categoryService.GetAll();
 
             return View(product);
         }
 
         [HttpPost]
-        public IActionResult EditProduct(AdminProductModel adminProduct)
+        public IActionResult EditProduct(AdminProductModel adminProduct, int[] categoryIds)
         {
             var entity = _productService.GetById(adminProduct.ProductId);
             if (entity == null)
@@ -112,6 +118,7 @@ namespace MarketingApp.WebUI.Controllers
             return RedirectToAction("ProductList");
         }
 
+        //DeleteProduct
         public IActionResult DeleteProduct(int productId)
         {
             var entity = _productService.GetById(productId);
@@ -216,7 +223,6 @@ namespace MarketingApp.WebUI.Controllers
             return RedirectToAction("CategoryList");    
         }   
 
-
         //Delete Category
         public IActionResult DeleteCategory(int categoryId)
         {
@@ -232,6 +238,14 @@ namespace MarketingApp.WebUI.Controllers
             };
             TempData["message"] = JsonConvert.SerializeObject(msg);
             return RedirectToAction("CategoryList");    
+        }
+
+        //DeleteProductFromCategory
+        [HttpPost]
+        public IActionResult DeleteProductFromCategory(int productId, int categoryId)
+        {
+            _categoryService.DeleteProductFromCategory(productId,categoryId);
+            return Redirect("/admin/kategoriler/"+@categoryId);
         }
     }
 }

@@ -16,6 +16,18 @@ namespace MarketingApp.Data.Concrete.EfCore
             }
         }
 
+        public Product GetByIdWithCategory(int productId)
+        {
+            using (var context = new MarketingContext())
+            {
+                return context.Products
+                            .Where(p=>p.ProductId == productId)
+                            .Include(pc => pc.productCategories)
+                            .ThenInclude(c=>c.Category)
+                            .FirstOrDefault();
+            }
+        }
+
         public int GetCountByCategory(string category)
         {
             using(var _context = new MarketingContext())
@@ -78,6 +90,33 @@ namespace MarketingApp.Data.Concrete.EfCore
                                                                 i.Description.ToLower().Contains(searchString.ToLower())))
                                     .AsQueryable();
                 return products.ToList();
+            }
+        }
+
+        public void Update(Product entity, int[] categoryIds)
+        {
+            using (var context = new MarketingContext())
+            {
+                var product = context.Products
+                                    .Include(pc=>pc.productCategories)
+                                    .FirstOrDefault(i=>i.ProductId == entity.ProductId);
+
+                if (product != null)
+                {
+                    product.ProductName = entity.ProductName;
+                    product.Url = entity.Url;
+                    product.Description = entity.Description;
+                    product.ProductPrice = entity.ProductPrice;
+                    product.ImageUrl = entity.ImageUrl;
+
+                    product.productCategories = categoryIds.Select(catid=> new ProductCategory()
+                    {
+                        CategoryId = catid,
+                        ProductId = entity.ProductId
+                    }).ToList();
+
+                    context.SaveChanges();
+                }
             }
         }
     }

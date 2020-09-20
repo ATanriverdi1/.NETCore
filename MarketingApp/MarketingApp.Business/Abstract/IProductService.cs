@@ -5,6 +5,7 @@ namespace MarketingApp.Business.Abstract
 {
     public interface IProductService
     {
+        Product GetByIdWithCategory(int productId);
         List<Product> GetSearchResult(string searchString);
         Product GetProductDetails(string url);
         List<Product> GetProductsByCategory(string name, int page, int pageSize);
@@ -15,6 +16,7 @@ namespace MarketingApp.Business.Abstract
         void Create(Product entity);
         
         void Update(Product entity);
+        void Update(Product entity,int[] categoryIds);
         
         void Delete(Product entity);
     }

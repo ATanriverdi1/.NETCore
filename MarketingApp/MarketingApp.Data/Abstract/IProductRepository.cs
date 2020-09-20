@@ -10,5 +10,8 @@ namespace MarketingApp.Data.Abstract
         int GetCountByCategory(string category);
         List<Product> GetSearchResult(string searchString);
         List<Product> GeProductstHomePage();
+        Product GetByIdWithCategory(int productId);
+
+        void Update(Product entity, int[] categoryIds);
     }
 }

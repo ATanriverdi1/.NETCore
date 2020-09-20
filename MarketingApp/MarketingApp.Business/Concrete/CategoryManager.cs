@@ -24,6 +24,11 @@ namespace MarketingApp.Business.Concrete
             _categoryRepository.Delete(entity);
         }
 
+        public void DeleteProductFromCategory(int productId, int categoryId)
+        {
+            _categoryRepository.DeleteProductFromCategory(productId,categoryId);
+        }
+
         public List<Category> GetAll()
         {
             return _categoryRepository.GetAll();

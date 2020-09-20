@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using MarketingApp.Entity;
+
 namespace MarketingApp.WebUI.ViewModel.Admin
 {
     public class AdminProductModel
@@ -10,5 +13,7 @@ namespace MarketingApp.WebUI.ViewModel.Admin
         public string ImageUrl { get; set; }
         public bool IsApproved { get; set; }
         public bool IsHomePage { get; set; }
+
+        public List<Category> SelectedCategories { get; set; }
     }
 }
