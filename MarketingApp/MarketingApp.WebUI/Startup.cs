@@ -81,6 +81,7 @@ namespace MarketingApp.WebUI
                     pattern:"admin/ürünler",
                     defaults: new {controller="admin", action="ProductList"}
                 );
+                
                 //AdminEditProduct Url
                 endpoints.MapControllerRoute(
                     name:"adminproductlist",
@@ -101,6 +102,7 @@ namespace MarketingApp.WebUI
                     pattern:"search",
                     defaults: new {controller="shop", action="search"}
                 );
+                
 
                 //ProductDetail Url
                 endpoints.MapControllerRoute(

@@ -1,54 +1,68 @@
 @model AdminProductModel
-<div class="row">
-  <div class="col-md-8">
-    <form asp-controller="Admin" asp-action="EditProduct" method="POST">
-      <input type="hidden" name="ProductId" value="@Model.ProductId">
-      <div class="form-row">
-        
-        <div class="form-group col-md-6">
-          <label asp-for="ProductName"></label>
-          <input class="form-control" asp-for="ProductName">
+
+<h1 class="h3">Edit Product</h1>
+<hr>
+
+<form asp-controller="Admin" asp-action="EditProduct" method="POST">
+  <div class="row">
+    <div class="col-md-8">
+        <input type="hidden" name="ProductId" value="@Model.ProductId">
+        <div class="form-row">
+          
+          <div class="form-group col-md-6">
+            <label asp-for="ProductName"></label>
+            <input class="form-control" asp-for="ProductName">
+          </div>
+          
+          <div class="form-group col-md-6">
+            <label asp-for="Url"></label>
+            <input class="form-control" asp-for="Url">
+          </div>
         </div>
         
-        <div class="form-group col-md-6">
-          <label asp-for="Url"></label>
-          <input class="form-control" asp-for="Url">
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <label asp-for="Description"></label>
-        <textarea class="form-control" asp-for="Description"></textarea>
-      </div>
-      
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label asp-for="ProductPrice"></label>
-          <input class="form-control" asp-for="ProductPrice">
+        <div class="form-group">
+          <label asp-for="Description"></label>
+          <textarea class="form-control" asp-for="Description"></textarea>
         </div>
         
-        <div class="form-group col-md-4">
-          <label asp-for="ImageUrl"></label>
-          <input class="form-control" asp-for="ImageUrl">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label asp-for="ProductPrice"></label>
+            <input class="form-control" asp-for="ProductPrice">
+          </div>
+          
+          <div class="form-group col-md-4">
+            <label asp-for="ImageUrl"></label>
+            <input class="form-control" asp-for="ImageUrl">
+          </div>
+        
         </div>
-      
+        
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </div>
+
+    <div class="col-md-3 ml-4">
+      @foreach (var item in (List<Category>)ViewBag.Categories)
+      {
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" 
+                name="categoryIds"
+                value="@item.CategoryId"
+                id="category_@(item.CategoryId)" 
+                @(Model.SelectedCategories.Any( i=> i.CategoryId == item.CategoryId) ? "checked" : "")>
+            <label class="custom-control-label" for="category_@(item.CategoryId)">@item.CategoryName</label>
+          </div>
+      }
+
+      <div class="custom-control custom-switch mt-4">
+        <input type="checkbox" class="custom-control-input" asp-for="IsApproved">
+        <label class="custom-control-label" asp-for="IsApproved"></label>
       </div>
-      
-      <button type="submit" class="btn btn-primary">Kaydet</button>
-    
-    </form>
+
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" asp-for="IsHomePage">
+        <label class="custom-control-label" asp-for="IsHomePage"></label>
+      </div>
+    </div>
   </div>
-  <div class="col-md-3 ml-4">
-    @foreach (var item in (List<Category>)ViewBag.Categories)
-    {
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" 
-              name="categoryIds"
-              value="@item.CategoryId"
-              id="category_@(item.CategoryId)" 
-              @(Model.SelectedCategories.Any( i=> i.CategoryId == item.CategoryId) ? "checked" : "")>
-          <label class="custom-control-label" for="category_@(item.CategoryId)">@item.CategoryName</label>
-        </div>
-    }
-  </div>
-</div>
+</form>

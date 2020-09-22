@@ -13,5 +13,6 @@ namespace MarketingApp.Data.Abstract
         Product GetByIdWithCategory(int productId);
 
         void Update(Product entity, int[] categoryIds);
+        void Create(Product entity, int[] categoryIds);
     }
 }

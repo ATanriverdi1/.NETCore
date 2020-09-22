@@ -34,11 +34,12 @@ namespace MarketingApp.WebUI.Controllers
         [HttpGet]
         public IActionResult CreateProduct()
         {
+            ViewBag.Categories = _categoryService.GetAll();
             return View();
         }
 
         [HttpPost]
-        public IActionResult CreateProduct(AdminProductModel adminProduct)
+        public IActionResult CreateProduct(AdminProductModel adminProduct, int[] categoryIds)
         {
             if (ModelState.IsValid)
             {
@@ -48,10 +49,12 @@ namespace MarketingApp.WebUI.Controllers
                     Url=adminProduct.Url,
                     Description = adminProduct.Description,
                     ProductPrice = adminProduct.ProductPrice,
-                    ImageUrl = adminProduct.ImageUrl
+                    ImageUrl = adminProduct.ImageUrl,
+                    IsHomePage = adminProduct.IsHomePage,
+                    IsApproved = adminProduct.IsApproved,
                 };
 
-                _productService.Create(product);
+                _productService.Create(product, categoryIds);
 
                 var msg = new AlertMessage(){
                 Message = $"{product.ProductName} isimli ürün eklendi.",
@@ -85,6 +88,8 @@ namespace MarketingApp.WebUI.Controllers
                 Url = entity.Url,
                 Description = entity.Description,
                 ProductPrice = entity.ProductPrice,
+                IsApproved = entity.IsApproved,
+                IsHomePage = entity.IsHomePage,
                 ImageUrl = entity.ImageUrl,
                 SelectedCategories = entity.productCategories.Select(c=>c.Category).ToList()
             };
@@ -107,8 +112,10 @@ namespace MarketingApp.WebUI.Controllers
             entity.Description = adminProduct.Description;
             entity.ProductPrice = adminProduct.ProductPrice;
             entity.ImageUrl = adminProduct.ImageUrl;
+            entity.IsApproved = adminProduct.IsApproved;
+            entity.IsHomePage = adminProduct.IsHomePage;
 
-            _productService.Update(entity);
+            _productService.Update(entity,categoryIds);
 
             var msg = new AlertMessage(){
                 Message = $"{entity.ProductName} isimli ürün güncellendi.",

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using MarketingApp.Business.Abstract;
 using MarketingApp.Data.Abstract;
 using MarketingApp.Entity;
@@ -18,6 +19,11 @@ namespace MarketingApp.Business.Concrete
         {
             //Business Rules
             _productRepository.Create(entity);
+        }
+
+        public void Create(Product entity, int[] categoryIds)
+        {
+            _productRepository.Create(entity,categoryIds);
         }
 
         public void Delete(Product entity)

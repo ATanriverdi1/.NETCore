@@ -1,30 +1,73 @@
 @model AdminProductModel
 
+<h1 class="h3">Create Product</h1>
+<hr>
+
 <form asp-controller="Admin" asp-action="CreateProduct" method="POST">
-  
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label asp-for="ProductName"></label>
-      <input class="form-control" asp-for="ProductName">
+<div class="row">
+
+  <div class="col md-8">
+
+    <div class="form-row">
+      
+      <div class="form-group col-md-6">
+        <label asp-for="ProductName"></label>
+        <input class="form-control" asp-for="ProductName">
+      </div>
+      
+      <div class="form-group col-md-6">
+        <label asp-for="Url"></label>
+        <input class="form-control" asp-for="Url">
+      </div>
+    
     </div>
-    <div class="form-group col-md-6">
-      <label asp-for="Url"></label>
-      <input class="form-control" asp-for="Url">
+    
+    <div class="form-group">
+      <label asp-for="Description"></label>
+      <textarea class="form-control" asp-for="Description"></textarea>
     </div>
-  </div>
-  <div class="form-group">
-    <label asp-for="Description"></label>
-    <textarea class="form-control" asp-for="Description"></textarea>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label asp-for="ProductPrice"></label>
-      <input class="form-control" asp-for="ProductPrice">
+    
+    <div class="form-row">
+      
+      <div class="form-group col-md-6">
+        <label asp-for="ProductPrice"></label>
+        <input class="form-control" asp-for="ProductPrice">
+      </div>
+      
+      <div class="form-group col-md-4">
+        <label asp-for="ImageUrl"></label>
+        <input class="form-control" asp-for="ImageUrl">
+      </div>
+   
     </div>
-    <div class="form-group col-md-4">
-      <label asp-for="ImageUrl"></label>
-      <input class="form-control" asp-for="ImageUrl">
+    
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    
     </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Kaydet</button>
+    
+    <div class="col-md-4">
+
+      @foreach (var item in (List<Category>)ViewBag.Categories)
+      {
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" 
+                name="categoryIds"
+                value="@item.CategoryId"
+                id="category_@(item.CategoryId)">
+            <label class="custom-control-label" for="category_@(item.CategoryId)">@item.CategoryName</label>
+          </div>
+      }
+
+      <div class="custom-control custom-switch mt-4">
+        <input type="checkbox" class="custom-control-input" asp-for="IsApproved">
+        <label class="custom-control-label" asp-for="IsApproved"></label>
+      </div>
+
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" asp-for="IsHomePage">
+        <label class="custom-control-label" asp-for="IsHomePage"></label>
+      </div>
+    
+    </div>
+</div>  
 </form>

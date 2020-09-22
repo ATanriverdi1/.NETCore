@@ -14,6 +14,7 @@ namespace MarketingApp.Business.Abstract
         List<Product> GetAll();
         List<Product> GeProductstHomePage();
         void Create(Product entity);
+        void Create(Product entity, int[] categoryIds);
         
         void Update(Product entity);
         void Update(Product entity,int[] categoryIds);

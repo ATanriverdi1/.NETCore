@@ -8,6 +8,35 @@ namespace MarketingApp.Data.Concrete.EfCore
 {
     public class EfCoreProductRepository : EfCoreGenericRepository<Product, MarketingContext>, IProductRepository
     {
+        public void Create(Product entity, int[] categoryIds)
+        {
+            using (var context = new MarketingContext())
+            {
+                
+                if (entity != null)
+                {
+                    var product = new Product(){
+                    ProductName = entity.ProductName,
+                    Description = entity.Description,
+                    ProductPrice = entity.ProductPrice,
+                    ImageUrl = entity.ImageUrl,
+                    Url = entity.Url,
+                    IsApproved = entity.IsApproved,
+                    IsHomePage = entity.IsHomePage,
+                    };
+
+                    product.productCategories = categoryIds.Select(catid=> new ProductCategory(){
+                        ProductId = entity.ProductId,
+                        CategoryId = catid
+                    }).ToList();
+                    
+                    context.Add(entity);
+                    context.SaveChanges();
+                }
+                
+            }
+        }
+
         public List<Product> GeProductstHomePage()
         {
             using (var context = new MarketingContext()) 
@@ -108,6 +137,8 @@ namespace MarketingApp.Data.Concrete.EfCore
                     product.Description = entity.Description;
                     product.ProductPrice = entity.ProductPrice;
                     product.ImageUrl = entity.ImageUrl;
+                    product.IsHomePage = entity.IsHomePage;
+                    product.IsApproved = entity.IsApproved;
 
                     product.productCategories = categoryIds.Select(catid=> new ProductCategory()
                     {
