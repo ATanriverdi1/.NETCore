@@ -25,7 +25,7 @@ namespace MarketingApp.Data.Concrete.EfCore
                     IsHomePage = entity.IsHomePage,
                     };
 
-                    product.productCategories = categoryIds.Select(catid=> new ProductCategory(){
+                    entity.productCategories = categoryIds.Select(catid=> new ProductCategory(){
                         ProductId = entity.ProductId,
                         CategoryId = catid
                     }).ToList();
