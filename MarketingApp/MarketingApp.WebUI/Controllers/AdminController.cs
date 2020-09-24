@@ -65,6 +65,7 @@ namespace MarketingApp.WebUI.Controllers
                 return RedirectToAction("ProductList");    
             }
 
+            ViewBag.Categories = _categoryService.GetAll();
             return View(adminProduct);
         }
 
@@ -102,27 +103,34 @@ namespace MarketingApp.WebUI.Controllers
         [HttpPost]
         public IActionResult EditProduct(AdminProductModel adminProduct, int[] categoryIds)
         {
-            var entity = _productService.GetById(adminProduct.ProductId);
-            if (entity == null)
+            if (ModelState.IsValid)
             {
-                return NotFound();
+                var entity = _productService.GetById(adminProduct.ProductId);
+                if (entity == null)
+                {
+                    return NotFound();
+                }
+                entity.ProductName = adminProduct.ProductName;
+                entity.Url = adminProduct.Url;
+                entity.Description = adminProduct.Description;
+                entity.ProductPrice = adminProduct.ProductPrice;
+                entity.ImageUrl = adminProduct.ImageUrl;
+                entity.IsApproved = adminProduct.IsApproved;
+                entity.IsHomePage = adminProduct.IsHomePage;
+
+                _productService.Update(entity,categoryIds);
+
+                var msg = new AlertMessage(){
+                    Message = $"{entity.ProductName} isimli ürün güncellendi.",
+                    AlertType = "warning"
+                };
+                TempData["message"] = JsonConvert.SerializeObject(msg);
+                return RedirectToAction("ProductList");
             }
-            entity.ProductName = adminProduct.ProductName;
-            entity.Url = adminProduct.Url;
-            entity.Description = adminProduct.Description;
-            entity.ProductPrice = adminProduct.ProductPrice;
-            entity.ImageUrl = adminProduct.ImageUrl;
-            entity.IsApproved = adminProduct.IsApproved;
-            entity.IsHomePage = adminProduct.IsHomePage;
-
-            _productService.Update(entity,categoryIds);
-
-            var msg = new AlertMessage(){
-                Message = $"{entity.ProductName} isimli ürün güncellendi.",
-                AlertType = "warning"
-            };
-            TempData["message"] = JsonConvert.SerializeObject(msg);
-            return RedirectToAction("ProductList");
+            
+            ViewBag.Categories=_categoryService.GetAll();
+            
+            return View(adminProduct);    
         }
 
         //DeleteProduct
@@ -209,25 +217,30 @@ namespace MarketingApp.WebUI.Controllers
         [HttpPost]
         public IActionResult EditCategory(AdminCategoryModel adminCategoryModel)
         {
-            var entity = _categoryService.GetById(adminCategoryModel.CategoryId);
+            if (ModelState.IsValid)
+            {
+                var entity = _categoryService.GetById(adminCategoryModel.CategoryId);
             
-            if(entity == null)
-                return NotFound();
+                if(entity == null)
+                    return NotFound();
 
-            entity.CategoryId = adminCategoryModel.CategoryId;
-            entity.CategoryName = adminCategoryModel.CategoryName;
-            entity.Url = adminCategoryModel.Url;
+                entity.CategoryId = adminCategoryModel.CategoryId;
+                entity.CategoryName = adminCategoryModel.CategoryName;
+                entity.Url = adminCategoryModel.Url;
 
-            _categoryService.Update(entity);
+                _categoryService.Update(entity);
 
-            var msg = new AlertMessage(){
-                Message = $"{entity.CategoryName} isimli kategori güncellendi.",
-                AlertType = "warning"
-            };
+                var msg = new AlertMessage(){
+                    Message = $"{entity.CategoryName} isimli kategori güncellendi.",
+                    AlertType = "warning"
+                };
 
-            TempData["message"] = JsonConvert.SerializeObject(msg);
+                TempData["message"] = JsonConvert.SerializeObject(msg);
 
-            return RedirectToAction("CategoryList");    
+                return RedirectToAction("CategoryList");    
+            }
+
+            return View(adminCategoryModel);
         }   
 
         //Delete Category

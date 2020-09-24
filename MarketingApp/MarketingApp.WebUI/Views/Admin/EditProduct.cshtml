@@ -4,36 +4,45 @@
 <hr>
 
 <form asp-controller="Admin" asp-action="EditProduct" method="POST">
+<div asp-validation-summary="All" class="text-danger"></div>  
+  
   <div class="row">
+    
     <div class="col-md-8">
+        
         <input type="hidden" name="ProductId" value="@Model.ProductId">
         <div class="form-row">
           
           <div class="form-group col-md-6">
             <label asp-for="ProductName"></label>
             <input class="form-control" asp-for="ProductName">
+            <span asp-validation-for = "ProductName" class="text-danger"></span>
           </div>
           
           <div class="form-group col-md-6">
             <label asp-for="Url"></label>
             <input class="form-control" asp-for="Url">
+            <span asp-validation-for = "Url" class="text-danger"></span>
           </div>
         </div>
         
         <div class="form-group">
           <label asp-for="Description"></label>
           <textarea class="form-control" asp-for="Description"></textarea>
+          <span asp-validation-for = "Description" class="text-danger"></span>
         </div>
         
         <div class="form-row">
           <div class="form-group col-md-6">
             <label asp-for="ProductPrice"></label>
             <input class="form-control" asp-for="ProductPrice">
+            <span asp-validation-for = "ProductPrice" class="text-danger"></span>
           </div>
           
           <div class="form-group col-md-4">
             <label asp-for="ImageUrl"></label>
             <input class="form-control" asp-for="ImageUrl">
+            <span asp-validation-for = "ImageUrl" class="text-danger"></span>
           </div>
         
         </div>
@@ -42,6 +51,11 @@
     </div>
 
     <div class="col-md-3 ml-4">
+      @for (int i = 0; i < Model.SelectedCategories.Count; i++)
+      {
+          <input type="hidden" name="SelectedCategories[@i].CategoryId" value="@Model.SelectedCategories[@i].CategoryId">
+          <input type="hidden" name="SelectedCategories[@i].CategoryName" value="@Model.SelectedCategories[@i].CategoryName">
+      }
       @foreach (var item in (List<Category>)ViewBag.Categories)
       {
           <div class="custom-control custom-checkbox">
@@ -55,14 +69,32 @@
       }
 
       <div class="custom-control custom-switch mt-4">
-        <input type="checkbox" class="custom-control-input" asp-for="IsApproved">
+        <input class="custom-control-input" type="checkbox" asp-for="IsApproved" id="IsApproved">
         <label class="custom-control-label" asp-for="IsApproved"></label>
       </div>
 
       <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" asp-for="IsHomePage">
+        <input class="custom-control-input" type="checkbox" asp-for="IsHomePage" id="IsHomePage">
         <label class="custom-control-label" asp-for="IsHomePage"></label>
       </div>
+    
     </div>
   </div>
 </form>
+<script>
+  $(function() {
+  enable_cb();
+  $("#IsApproved").click(enable_cb);
+});
+
+function enable_cb() {
+    $("#IsHomePage").prop("disabled", !this.checked);
+}
+
+</script>
+
+@section Scripts
+{
+    <script src="/modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}
