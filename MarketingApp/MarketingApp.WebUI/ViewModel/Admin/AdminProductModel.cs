@@ -21,7 +21,6 @@ namespace MarketingApp.WebUI.ViewModel.Admin
         public double? ProductPrice { get; set; }
 
         [Required(ErrorMessage="Bu alan boş bırakılamaz.")]
-        [StringLength(100,MinimumLength=5,ErrorMessage="5-100 karakter arasında olmalıdır.")]
         public string Description { get; set; }
 
         [Required(ErrorMessage="Bu alan boş bırakılamaz.")]

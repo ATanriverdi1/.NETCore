@@ -1,9 +1,13 @@
+using System;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using MarketingApp.Business.Abstract;
 using MarketingApp.Entity;
 using MarketingApp.WebUI.Models;
 using MarketingApp.WebUI.ViewModel;
 using MarketingApp.WebUI.ViewModel.Admin;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -42,7 +46,7 @@ namespace MarketingApp.WebUI.Controllers
         public IActionResult CreateProduct(AdminProductModel adminProduct, int[] categoryIds)
         {
             if (ModelState.IsValid)
-            {
+            {   
                 var product = new Product()
                 {
                     ProductName = adminProduct.ProductName,
@@ -51,9 +55,9 @@ namespace MarketingApp.WebUI.Controllers
                     ProductPrice = adminProduct.ProductPrice,
                     ImageUrl = adminProduct.ImageUrl,
                     IsHomePage = adminProduct.IsHomePage,
-                    IsApproved = adminProduct.IsApproved,
+                    IsApproved = adminProduct.IsApproved
                 };
-
+                
                 _productService.Create(product, categoryIds);
 
                 var msg = new AlertMessage(){
@@ -101,7 +105,7 @@ namespace MarketingApp.WebUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditProduct(AdminProductModel adminProduct, int[] categoryIds)
+        public async Task<IActionResult> EditProduct(AdminProductModel adminProduct, int[] categoryIds, IFormFile file)
         {
             if (ModelState.IsValid)
             {
@@ -114,9 +118,21 @@ namespace MarketingApp.WebUI.Controllers
                 entity.Url = adminProduct.Url;
                 entity.Description = adminProduct.Description;
                 entity.ProductPrice = adminProduct.ProductPrice;
-                entity.ImageUrl = adminProduct.ImageUrl;
                 entity.IsApproved = adminProduct.IsApproved;
                 entity.IsHomePage = adminProduct.IsHomePage;
+
+                if (file!=null)
+                {
+                    var extention = Path.GetExtension(file.FileName);
+                    var randomName = string.Format($"{DateTime.Now.Ticks}{extention}");
+                    entity.ImageUrl = randomName;
+                    var path = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot\\images",randomName);
+
+                    using (var stream = new FileStream(path,FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                }
 
                 _productService.Update(entity,categoryIds);
 

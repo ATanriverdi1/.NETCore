@@ -2,7 +2,7 @@
 <h1 class="h3">Create Product</h1>
 <hr>
 
-<form asp-controller="Admin" asp-action="CreateProduct" method="POST">
+<form asp-controller="Admin" asp-action="CreateProduct" method="POST" enctype="multipart/form-data">
 <div asp-validation-summary="All" class="text-danger"></div>
 
 <div class="row">
@@ -44,9 +44,9 @@
         <input class="form-control" asp-for="ImageUrl">
         <span asp-validation-for = "ImageUrl" class="text-danger"></span>
       </div>
-   
-    </div>
     
+    </div>
+
     <button type="submit" class="btn btn-primary">Kaydet</button>
     
     </div>
@@ -93,4 +93,8 @@ function enable_cb() {
 {
     <script src="/modules/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script src="/modules/ckeditor/ckeditor.js"></script>
+    <script>
+      CKEDITOR.replace('Description');
+    </script>
 }
