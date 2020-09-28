@@ -7,12 +7,14 @@ using MarketingApp.Entity;
 using MarketingApp.WebUI.Models;
 using MarketingApp.WebUI.ViewModel;
 using MarketingApp.WebUI.ViewModel.Admin;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace MarketingApp.WebUI.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private ICategoryService _categoryService;

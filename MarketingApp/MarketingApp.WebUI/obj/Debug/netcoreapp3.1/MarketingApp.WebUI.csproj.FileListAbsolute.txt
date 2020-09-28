@@ -234,3 +234,11 @@ D:\git\.NETCore\MarketingApp\MarketingApp.WebUI\bin\Debug\netcoreapp3.1\Newtonso
 D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Admin\CategoryList.cshtml.g.cs
 D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Admin\CreateCategory.cshtml.g.cs
 D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditCategory.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\git\.NETCore\MarketingApp\marketingapp.webui\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\git\.NETCore\MarketingApp\marketingapp.webui\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\git\.NETCore\MarketingApp\marketingapp.webui\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\git\.NETCore\MarketingApp\marketingapp.webui\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Search.cshtml.g.cs

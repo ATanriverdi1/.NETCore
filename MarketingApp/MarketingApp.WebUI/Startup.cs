@@ -1,10 +1,17 @@
+using System;
 using System.IO;
 using MarketingApp.Business.Abstract;
 using MarketingApp.Business.Concrete;
 using MarketingApp.Data.Abstract;
 using MarketingApp.Data.Concrete.EfCore;
+using MarketingApp.WebUI.EmailServices;
+using MarketingApp.WebUI.Models.identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
@@ -13,6 +20,11 @@ namespace MarketingApp.WebUI
 {
     public class Startup
     {
+        private IConfiguration _configuration;
+        public Startup(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -22,9 +34,66 @@ namespace MarketingApp.WebUI
 
             services.AddScoped<ICategoryService,CategoryManager>();
             services.AddScoped<ICategoryRepository,EfCoreCategoryRepository>();
+
             
+            
+            //identity
+            services.AddDbContext<ApplicationDbContext>(options=> options.UseSqlite("Data Source = Marketing.db"));
+            services.AddIdentity<ApplicationUser,IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+
+            services.Configure<IdentityOptions>(options=>{
+                
+                //Default Password settings.
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric= false;
+                options.Password.RequiredLength = 6;
+
+                //Default Lockout settings.
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+                
+                //Default Sign-in settings.
+                options.SignIn.RequireConfirmedEmail = true;
+                options.SignIn.RequireConfirmedPhoneNumber = false;
+
+                //Default User settings.
+                options.User.RequireUniqueEmail = true;
+                options.User.AllowedUserNameCharacters =
+                             "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+            });
+
+            services.ConfigureApplicationCookie(options=>{
+                //ReturnUrlParameter requires 
+                options.LoginPath = "/account/login";
+                options.LogoutPath = "/account/logout";
+                options.AccessDeniedPath = "/account/accessdenied";
+                
+                options.SlidingExpiration = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                
+                //CookieBuilder
+                options.Cookie = new CookieBuilder{
+                    Name = ".MarketingApp.Security.Cookie",
+                    HttpOnly = true,
+                    SameSite = SameSiteMode.Strict
+                };   
+            });
+
+            services.AddScoped<IEmailSender,SmtpEmailSender>(i=> 
+                new SmtpEmailSender(
+                    _configuration["EmailSender:Host"],
+                    _configuration.GetValue<int>("EmailSender:Port"),
+                    _configuration.GetValue<bool>("EmailSender:EnableSSL"),
+                    _configuration["EmailSender:UserName"],
+                    _configuration["EmailSender:Password"])
+                );
+                
             //MVC
             services.AddControllersWithViews();
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +113,9 @@ namespace MarketingApp.WebUI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseAuthentication();
             app.UseRouting();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

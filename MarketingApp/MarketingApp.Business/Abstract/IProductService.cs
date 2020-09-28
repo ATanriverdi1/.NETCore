@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using MarketingApp.Entity;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace MarketingApp.Business.Abstract
 {

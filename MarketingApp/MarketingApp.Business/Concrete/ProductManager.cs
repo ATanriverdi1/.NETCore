@@ -1,18 +1,23 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MarketingApp.Business.Abstract;
 using MarketingApp.Data.Abstract;
+using MarketingApp.Data.Concrete.EfCore;
 using MarketingApp.Entity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace MarketingApp.Business.Concrete
 {
     public class ProductManager : IProductService
     {
         private IProductRepository _productRepository;
-
-        public ProductManager(IProductRepository productRepository)
+        private IMemoryCache _memoryCache;
+        public ProductManager(IProductRepository productRepository, IMemoryCache memoryCache)
         {
             _productRepository = productRepository;
+            _memoryCache = memoryCache;
         }
 
         public void Create(Product entity)
@@ -33,7 +38,16 @@ namespace MarketingApp.Business.Concrete
 
         public List<Product> GeProductstHomePage()
         {
-            return _productRepository.GeProductstHomePage();
+            if (_memoryCache.TryGetValue("productsHome", out List<Product> productsHome))
+            {
+                return productsHome;
+            }
+
+            productsHome = _productRepository.GeProductstHomePage();
+            var memoryCacheEntryOptions = new MemoryCacheEntryOptions();
+            memoryCacheEntryOptions.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5);
+            _memoryCache.Set("productsHome",productsHome,memoryCacheEntryOptions);
+            return productsHome;
         }
 
         public List<Product> GetAll()
@@ -63,7 +77,7 @@ namespace MarketingApp.Business.Concrete
 
         public List<Product> GetProductsByCategory(string name, int page, int pageSize)
         {
-            return _productRepository.GetProductsByCategory(name, page, pageSize);
+            return _productRepository.GetProductsByCategory(name,page,pageSize);
         }
 
         public List<Product> GetSearchResult(string searchString)
