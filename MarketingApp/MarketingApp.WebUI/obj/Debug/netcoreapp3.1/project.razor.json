@@ -14474,6 +14474,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Account\\ForgotPassword.cshtml",
+      "TargetPath": "Views\\Account\\ForgotPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_Search.cshtml",
       "TargetPath": "Views\\Shared\\_Search.cshtml",
       "FileKind": "mvc"
@@ -14491,6 +14496,11 @@
     {
       "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Shop\\Search.cshtml",
       "TargetPath": "Views\\Shop\\Search.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Account\\ResetPassword.cshtml",
+      "TargetPath": "Views\\Account\\ResetPassword.cshtml",
       "FileKind": "mvc"
     },
     {

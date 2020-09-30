@@ -242,3 +242,5 @@ D:\git\.NETCore\MarketingApp\marketingapp.webui\bin\Debug\netcoreapp3.1\Microsof
 D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Search.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Account\ForgotPassword.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Account\ResetPassword.cshtml.g.cs

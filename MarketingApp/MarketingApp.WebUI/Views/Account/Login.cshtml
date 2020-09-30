@@ -3,7 +3,8 @@
 <form asp-controller="Account" asp-action="Login" method="POST">
     <input type="hidden" name="returnUrl" value="@Model.ReturnUrl">
 <div asp-validation-summary = "All" class="text-danger"></div>
-    
+
+<div class="container">    
     <div class="form-group row">
         <label asp-for="Email" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-3">
@@ -19,8 +20,13 @@
       <span asp-validation-for="Password" class="text-danger"></span>
       </div>
     </div>
-  
-  <button type="submit" class="btn btn-primary">Giriş</button>
+
+      <button type="submit" class="btn btn-primary ml-12">Giriş</button>
+    <div class="form-group row">
+      <a href="/account/forgotpassword" class="btn btn-link">Şifremi unuttum</a>
+    </div>
+    
+  </div>
 </form>
 
 @section Scripts

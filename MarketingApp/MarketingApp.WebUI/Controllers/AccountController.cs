@@ -92,7 +92,9 @@ namespace MarketingApp.WebUI.Controllers
                     token = code
                 });
                 //email confirmed
-                await _emailSender.SendEmailAsync(model.Email,"Hesabınızı onaylayınız.",$"Lütfen email hesabınızı onaylamak için linke <a href='http://localhost:5000{url}'>buraya.</a> tıklayınız");
+                await _emailSender.SendEmailAsync(model.Email,"MarketingApp Onay Mesajı.",
+                $"Hesabınız başarılı bir şekilde oluşturuldu {@model.UserName} <hr/> Lütfen email hesabınızı onaylamak için  <a href='http://localhost:5000{url}'>linke</a> tıklayınız");
+                CreateMessage("Hesabınız başarılı bir şekilde oluşturuldu. Lütfen Emailinize gelen linkten hesabınızı onaylayınız.", "success");
                 return RedirectToAction("Login","Account");
             }
             else{
@@ -129,6 +131,73 @@ namespace MarketingApp.WebUI.Controllers
             return RedirectToAction("Login","Account");
         }
 
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+            {
+                return View();
+            }
+
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user != null)
+            {
+                var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+                var url = Url.Action("ResetPassword","Account",new{
+                    userId = user.Id,
+                    token = code
+                });
+
+                await _emailSender.SendEmailAsync(email,"MarketingApp Parola Sıfırlama İsteği.",
+                $"Lütfen parolanızı sıfırlamak için <a href='http://localhost:5000{url}'>linke</a> tıklayınız");
+
+                CreateMessage("Şifrenizi sıfırlamak için Emailinize gelen linki kontrol ediniz","warning");
+                return RedirectToAction("Login","Account");
+            }
+            CreateMessage("Bu Emaile kayıtlı kullanıcı bulunamadı","danger");
+            return RedirectToAction("Login","Account");
+        }
+
+        [HttpGet]
+        public IActionResult ResetPassword(string userId, string token)
+        {
+            if (userId == null || token == null)
+            {
+                return View();
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user != null)
+            {
+                var result = await _userManager.ResetPasswordAsync(user,model.Token,model.Password);
+                if(result.Succeeded)
+                {
+                    CreateMessage("Şifreniz Yenilendi","success");
+                    return RedirectToAction("Login", "Account");
+                }
+                else
+                {
+                    result.Errors.ToList().ForEach(a=> ModelState.AddModelError(a.Code,a.Description));
+                    return View(model);
+                }    
+            }
+            return View(model);
+        }
 
 
         private void CreateMessage(string message,string alerttype)
