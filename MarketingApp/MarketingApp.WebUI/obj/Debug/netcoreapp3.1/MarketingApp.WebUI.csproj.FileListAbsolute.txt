@@ -244,3 +244,9 @@ D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Vi
 D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Search.cshtml.g.cs
 D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Account\ForgotPassword.cshtml.g.cs
 D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Account\ResetPassword.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ResultMessage.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Admin\RoleList.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Admin\CreateRole.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Admin\RoleEdit.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Account\AccessDenied.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ErrorPage.cshtml.g.cs

@@ -14419,6 +14419,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Account\\AccessDenied.cshtml",
+      "TargetPath": "Views\\Account\\AccessDenied.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Admin\\EditProduct.cshtml",
       "TargetPath": "Views\\Admin\\EditProduct.cshtml",
       "FileKind": "mvc"
@@ -14434,6 +14439,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_ResultMessage.cshtml",
+      "TargetPath": "Views\\Shared\\_ResultMessage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_navbar.cshtml",
       "TargetPath": "Views\\Shared\\_navbar.cshtml",
       "FileKind": "mvc"
@@ -14441,6 +14451,11 @@
     {
       "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Admin\\RoleEdit.cshtml",
+      "TargetPath": "Views\\Admin\\RoleEdit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14519,6 +14534,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Shared\\_ErrorPage.cshtml",
+      "TargetPath": "Views\\Shared\\_ErrorPage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Admin\\CreateRole.cshtml",
+      "TargetPath": "Views\\Admin\\CreateRole.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Admin\\ProductList.cshtml",
       "TargetPath": "Views\\Admin\\ProductList.cshtml",
       "FileKind": "mvc"
@@ -14526,6 +14551,11 @@
     {
       "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Admin\\EditCategory.cshtml",
       "TargetPath": "Views\\Admin\\EditCategory.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Admin\\RoleList.cshtml",
+      "TargetPath": "Views\\Admin\\RoleList.cshtml",
       "FileKind": "mvc"
     }
   ],

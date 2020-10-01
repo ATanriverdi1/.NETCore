@@ -1,29 +1,129 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using MarketingApp.Business.Abstract;
 using MarketingApp.Entity;
+using MarketingApp.WebUI.Extensions;
 using MarketingApp.WebUI.Models;
+using MarketingApp.WebUI.Models.identity;
 using MarketingApp.WebUI.ViewModel;
 using MarketingApp.WebUI.ViewModel.Admin;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace MarketingApp.WebUI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles="Admin")]
     public class AdminController : Controller
     {
         private ICategoryService _categoryService;
         private IProductService _productService;
+        private RoleManager<IdentityRole> _roleManager;
+        private UserManager<ApplicationUser> _userManager;
 
-        public AdminController(IProductService productService, ICategoryService categoryService)
+        public AdminController( IProductService productService, 
+                                ICategoryService categoryService,
+                                RoleManager<IdentityRole> roleManager,
+                                UserManager<ApplicationUser> userManager)
         {
             this._productService = productService;
             this._categoryService = categoryService;
+            this._roleManager = roleManager;
+            this._userManager = userManager;
+        }
+
+        //AdminRole
+        //RoleEdit
+
+        [HttpGet]
+        public async Task<IActionResult> RoleEdit(string id)
+        {
+            var role = await _roleManager.FindByIdAsync(id);
+
+            var members = new List<ApplicationUser>();
+            var nonmembers = new List<ApplicationUser>();
+
+            foreach (var user in _userManager.Users)
+            {
+                var list = await _userManager.IsInRoleAsync(user,role.Name) ? members : nonmembers;
+                list.Add(user);
+            }
+            var model = new RoleDetails(){
+                Role = role,
+                Members = members,
+                NonMembers = nonmembers
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RoleEdit(RoleEditModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                foreach (var userId in model.IdsToAdd ?? new string[]{})
+                {
+                    var user = await _userManager.FindByIdAsync(userId);
+                    if (user != null)
+                    {
+                        var result = await _userManager.AddToRoleAsync(user,model.RoleName);
+                        if (!result.Succeeded)
+                        {
+                            result.Errors.ToList().ForEach(a=> ModelState.AddModelError(a.Code,a.Description));
+                        }
+                    }
+                }
+            
+                foreach (var userId in model.IdsToDelete ?? new string[]{})
+                {
+                    var user = await _userManager.FindByIdAsync(userId);
+                    if (user != null)
+                    {
+                        var result = await _userManager.RemoveFromRoleAsync(user,model.RoleName);
+                        if (!result.Succeeded)
+                        {
+                            result.Errors.ToList().ForEach(a=> ModelState.AddModelError(a.Code,a.Description));
+                        }
+                    }
+                }
+            }
+            return Redirect("/admin/role/"+model.RoleId);
+        }
+
+        //Admin Role List
+        public IActionResult RoleList()
+        {
+            return View(_roleManager.Roles);
+        }
+
+        [HttpGet]
+        public IActionResult CreateRole()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateRole(RoleModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _roleManager.CreateAsync(new IdentityRole(model.RoleName));
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("RoleList","Admin");
+                }
+                else
+                {
+                    result.Errors.ToList().ForEach(a=> ModelState.AddModelError(a.Code, a.Description));
+                    return View(model);
+                }
+            }
+            return View(model);
         }
 
         //ProductList
@@ -62,11 +162,13 @@ namespace MarketingApp.WebUI.Controllers
                 
                 _productService.Create(product, categoryIds);
 
-                var msg = new AlertMessage(){
-                Message = $"{product.ProductName} isimli ürün eklendi.",
-                AlertType = "success"
-                };
-                TempData["message"] = JsonConvert.SerializeObject(msg);
+
+                TempData.Put("message", new AlertMessage{
+                    Message=$"{product.ProductName} isimli ürün eklendi.",
+                    AlertType="success" 
+                });
+
+                
 
                 return RedirectToAction("ProductList");    
             }
@@ -138,11 +240,11 @@ namespace MarketingApp.WebUI.Controllers
 
                 _productService.Update(entity,categoryIds);
 
-                var msg = new AlertMessage(){
-                    Message = $"{entity.ProductName} isimli ürün güncellendi.",
-                    AlertType = "warning"
-                };
-                TempData["message"] = JsonConvert.SerializeObject(msg);
+                TempData.Put("message", new AlertMessage{
+                    Message=$"{entity.ProductName} isimli ürün güncellendi.",
+                    AlertType="warning" 
+                });
+
                 return RedirectToAction("ProductList");
             }
             
@@ -159,11 +261,10 @@ namespace MarketingApp.WebUI.Controllers
             {
                 _productService.Delete(entity);
             }
-            var msg = new AlertMessage(){
-                Message = $"{entity.ProductName} isimli ürün kaldırıldı.",
-                AlertType = "danger"
-            };
-            TempData["message"] = JsonConvert.SerializeObject(msg);
+            TempData.Put("message", new AlertMessage{
+                Message=$"{entity.ProductName} isimli ürün kaldırıldı.",
+                AlertType="success" 
+            });
             return RedirectToAction("ProductList");
         }
 
@@ -197,12 +298,10 @@ namespace MarketingApp.WebUI.Controllers
                 
                 _categoryService.Create(category);
 
-                var msg = new AlertMessage()
-                {
-                    Message = $"{category.CategoryName} isimli kategori eklendi.",
-                    AlertType = "success"
-                };
-                TempData["message"] = JsonConvert.SerializeObject(msg);
+                TempData.Put("message", new AlertMessage{
+                    Message = $"{category.CategoryName} isimli kategori eklendi." ,
+                    AlertType="success" 
+                });
 
                 return RedirectToAction("CategoryList");
             }
@@ -248,12 +347,10 @@ namespace MarketingApp.WebUI.Controllers
 
                 _categoryService.Update(entity);
 
-                var msg = new AlertMessage(){
-                    Message = $"{entity.CategoryName} isimli kategori güncellendi.",
-                    AlertType = "warning"
-                };
-
-                TempData["message"] = JsonConvert.SerializeObject(msg);
+                TempData.Put("message", new AlertMessage{
+                    Message = $"{entity.CategoryName} isimli kategori güncellendi." ,
+                    AlertType="warning" 
+                });
 
                 return RedirectToAction("CategoryList");    
             }
@@ -270,11 +367,10 @@ namespace MarketingApp.WebUI.Controllers
                 _categoryService.Delete(entity);
             }
 
-            var msg = new AlertMessage(){
-                Message = $"{entity.CategoryName} isimli ürün kaldırıldı.",
-                AlertType = "danger"
-            };
-            TempData["message"] = JsonConvert.SerializeObject(msg);
+            TempData.Put("message", new AlertMessage{
+                Message = $"{entity.CategoryName} isimli kategori kaldırıldı." ,
+                AlertType="success" 
+            });
             return RedirectToAction("CategoryList");    
         }
 

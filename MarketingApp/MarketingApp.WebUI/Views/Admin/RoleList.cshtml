@@ -1,0 +1,39 @@
+@model IEnumerable<IdentityRole>
+
+<h1>Role List</h1>
+<hr>
+<a asp-controller="Admin" asp-action="CreateRole" class="badge badge-primary mb-3">Create Role</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td style="width: 80px;">Id</td>
+            <td>Name</td>
+            <td style="width: 150px;"></td>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() > 0)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>
+                        <a href="/admin/role/@item.Id" class="btn btn-primary btn-sm mr-2">Edit</a>
+                        
+                        <form action="/admin/role/delete" method="POST" style="display: inline;">
+                            <input type="hidden" name="RoleId" value="@item.Id">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+
+                    </td>
+                </tr>
+            }
+        }
+        else
+            @await Html.PartialAsync("_noproduct")
+        
+    </tbody>
+</table>

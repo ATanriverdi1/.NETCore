@@ -61,8 +61,22 @@ using Newtonsoft.Json;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 8 "D:\git\.NETCore\MarketingApp\marketingapp.webui\Views\_ViewImports.cshtml"
+using MarketingApp.WebUI.Extensions;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "D:\git\.NETCore\MarketingApp\marketingapp.webui\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ed3c35c0241c04d9254a24d6c03bc8ba6018ab05", @"/Views/Admin/ProductList.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"78a7cb6cc489e7604f0d3d38b7b2491b40a8204b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"62e906d511a825ed9d0b7930e85471fb5839e54c", @"/Views/_ViewImports.cshtml")]
     public class Views_Admin_ProductList : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ProductListViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "admin", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -100,7 +114,7 @@ using Newtonsoft.Json;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\r\n<h1>Admin Products</h1>\r\n<hr>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ed3c35c0241c04d9254a24d6c03bc8ba6018ab056835", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ed3c35c0241c04d9254a24d6c03bc8ba6018ab057219", async() => {
                 WriteLiteral("Yeni Ürün Ekle");
             }
             );
@@ -159,7 +173,7 @@ using Newtonsoft.Json;
 #line hidden
 #nullable disable
             WriteLiteral("</td>\r\n                    <td>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ed3c35c0241c04d9254a24d6c03bc8ba6018ab059529", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ed3c35c0241c04d9254a24d6c03bc8ba6018ab059913", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -263,7 +277,7 @@ WriteAttributeValue("", 1743, item.ProductId, 1743, 15, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(" class=\"btn btn-primary btn-sm mr-2\">Edit</a>\r\n                        \r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ed3c35c0241c04d9254a24d6c03bc8ba6018ab0514115", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ed3c35c0241c04d9254a24d6c03bc8ba6018ab0514499", async() => {
                 WriteLiteral("\r\n                            <input type=\"hidden\" name=\"ProductId\"");
                 BeginWriteAttribute("value", " value=\"", 1998, "\"", 2021, 1);
 #nullable restore

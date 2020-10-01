@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using MarketingApp.WebUI.EmailServices;
+using MarketingApp.WebUI.Extensions;
 using MarketingApp.WebUI.Models;
 using MarketingApp.WebUI.Models.identity;
 using Microsoft.AspNetCore.Identity;
@@ -94,7 +95,12 @@ namespace MarketingApp.WebUI.Controllers
                 //email confirmed
                 await _emailSender.SendEmailAsync(model.Email,"MarketingApp Onay Mesajı.",
                 $"Hesabınız başarılı bir şekilde oluşturuldu {@model.UserName} <hr/> Lütfen email hesabınızı onaylamak için  <a href='http://localhost:5000{url}'>linke</a> tıklayınız");
-                CreateMessage("Hesabınız başarılı bir şekilde oluşturuldu. Lütfen Emailinize gelen linkten hesabınızı onaylayınız.", "success");
+                
+                TempData.Put("message", new AlertMessage{
+                    Message="Hesabınız başarılı bir şekilde oluşturuldu. Lütfen Emailinize gelen linkten hesabınızı onaylayınız.",
+                    AlertType="success" 
+                });
+                
                 return RedirectToAction("Login","Account");
             }
             else{
@@ -114,7 +120,10 @@ namespace MarketingApp.WebUI.Controllers
         {
             if (userId == null || token == null)
             {
-                CreateMessage("Geçersiz Token","danger");
+                TempData.Put("message", new AlertMessage{
+                    Message="Geçersiz Token",
+                    AlertType="danger" 
+                });
             }
             var user = await _userManager.FindByIdAsync(userId);
             if (user != null)
@@ -122,12 +131,18 @@ namespace MarketingApp.WebUI.Controllers
                 var result = await _userManager.ConfirmEmailAsync(user,token);
                 if (result.Succeeded)
                 {
-                    CreateMessage("Hesabınız Onaylandı","success");
+                    TempData.Put("message", new AlertMessage{
+                        Message="Hesabınız onaylandı.",
+                        AlertType="success" 
+                    });
                     return RedirectToAction("Login","Account");
                 }
             }
 
-            CreateMessage("Hesabınız Onaylanmadı","danger");
+            TempData.Put("message", new AlertMessage{
+                Message="Hesabınız onaylanmadı",
+                AlertType="danger" 
+            });
             return RedirectToAction("Login","Account");
         }
 
@@ -157,10 +172,19 @@ namespace MarketingApp.WebUI.Controllers
                 await _emailSender.SendEmailAsync(email,"MarketingApp Parola Sıfırlama İsteği.",
                 $"Lütfen parolanızı sıfırlamak için <a href='http://localhost:5000{url}'>linke</a> tıklayınız");
 
-                CreateMessage("Şifrenizi sıfırlamak için Emailinize gelen linki kontrol ediniz","warning");
+                TempData.Put("message", new AlertMessage{
+                    Message="Şifrenizi sıfırlamak için Emailinize gelen linki kontrol ediniz.",
+                    AlertType="warning" 
+                });
+                
                 return RedirectToAction("Login","Account");
             }
-            CreateMessage("Bu Emaile kayıtlı kullanıcı bulunamadı","danger");
+
+            TempData.Put("message", new AlertMessage{
+                Message="Bu Emaile kayıtlı kullanıcı bulunamadı..",
+                AlertType="danger" 
+            });
+            
             return RedirectToAction("Login","Account");
         }
 
@@ -187,7 +211,11 @@ namespace MarketingApp.WebUI.Controllers
                 var result = await _userManager.ResetPasswordAsync(user,model.Token,model.Password);
                 if(result.Succeeded)
                 {
-                    CreateMessage("Şifreniz Yenilendi","success");
+                    TempData.Put("message", new AlertMessage{
+                        Message="Şifreniz yenilendi.",
+                        AlertType="success" 
+                    });
+                    
                     return RedirectToAction("Login", "Account");
                 }
                 else
@@ -199,14 +227,10 @@ namespace MarketingApp.WebUI.Controllers
             return View(model);
         }
 
-
-        private void CreateMessage(string message,string alerttype)
+        public IActionResult AccessDenied()
         {
-            var msg = new AlertMessage(){
-                Message = message,
-                AlertType = alerttype
-            };
-            TempData["message"] = JsonConvert.SerializeObject(msg);
+            return View();
         }
+
     }
 }

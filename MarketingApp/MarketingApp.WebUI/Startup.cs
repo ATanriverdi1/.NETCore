@@ -112,13 +112,34 @@ namespace MarketingApp.WebUI
                 SeedDatabase.Seed();
                 app.UseDeveloperExceptionPage();
             }
-
+            
             app.UseAuthentication();
             app.UseRouting();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                //Role List
+                endpoints.MapControllerRoute(
+                    name:"adminrolelist",
+                    pattern:"admin/role/list",
+                    defaults : new {controller="admin", action="RoleList"}
+                );
+
+                //AdminCreateRole
+                endpoints.MapControllerRoute(
+                    name:"admincreaterole",
+                    pattern:"admin/role/create",
+                    defaults : new {controller="admin", action="CreateRole"}
+                );
+
+                //AdminRoleEdit
+                endpoints.MapControllerRoute(
+                    name:"admincreaterole",
+                    pattern:"admin/role/{id}",
+                    defaults : new {controller="admin", action="RoleEdit"}
+                );
+
                 //AdminCreateCategoryUrl
                 endpoints.MapControllerRoute(
                     name:"admincreatecategory",
