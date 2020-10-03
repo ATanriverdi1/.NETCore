@@ -1,5 +1,10 @@
 @model AdminCategoryModel
 
+@section Css{
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+}
+
+
 <div class="row">
 <div class="col-md-4">
     <form asp-controller="Admin" asp-action="EditCategory" method="POST">
@@ -39,9 +44,7 @@
     </form>
 </div>
 <div class="col-md-8">
-    @if (Model.Products.Count > 0)
-    {
-        <table class="table table-bordered">
+    <table id="productTable" class="table table-bordered">
         <thead>
             <tr>
                 <td style="width: 30px;">Id</td>
@@ -50,53 +53,57 @@
                 <td style="width: 40px;">Price</td>
                 <td style="width: 20px;">IsApproved</td>
                 <td style="width: 20px;">IsHomePage</td>
-                <td style="width: 200px;"></td>
+                <td style="width: 250px;"></td>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.Products)
+            @if (Model.Products.Count > 0)
             {
-                <tr>
-                    <td>@item.ProductId</td>
-                    <td><img src="~/images/@item.ImageUrl" width="80"></td>
-                    <td>@item.ProductName</td>
-                    <td>@item.ProductPrice</td>
-                    <td>
-                        @if (item.IsApproved)
-                        {
-                            <i class="fas fa-check-circle"></i>
-                        }
-                        else{
-                            <i class="fas fa-times-circle"></i>
-                        }
-                    </td>
-                    <td>
-                        @if (item.IsHomePage)
-                        {
-                            <i class="fas fa-check-circle"></i>
-                        }
-                        else
-                        {
-                            <i class="fas fa-times-circle"></i>
-                        }
-                    </td>
-                    <td>
-                        <a href="/admin/ürünler/@item.ProductId" class="btn btn-primary btn-sm mr-2">Edit</a>
-                        
-                        <form action="/admin/DeleteProductFromCategory" method="POST" style="display: inline;">
-                            <input type="hidden" name="ProductId" value="@item.ProductId">
-                            <input type="hidden" name="categoryId" value="@Model.CategoryId">
-                                <button type="submit" class="btn btn-danger btn-sm">DeleteCategory</button>
-                        </form>
+        
+                @foreach (var item in Model.Products)
+                {
+                    <tr>
+                        <td>@item.ProductId</td>
+                        <td><img src="~/images/@item.ImageUrl" width="80"></td>
+                        <td>@item.ProductName</td>
+                        <td>@item.ProductPrice</td>
+                        <td>
+                            @if (item.IsApproved)
+                            {
+                                <i class="fas fa-check-circle"></i>
+                            }
+                            else{
+                                <i class="fas fa-times-circle"></i>
+                            }
+                        </td>
+                        <td>
+                            @if (item.IsHomePage)
+                            {
+                                <i class="fas fa-check-circle"></i>
+                            }
+                            else
+                            {
+                                <i class="fas fa-times-circle"></i>
+                            }
+                        </td>
+                        <td>
+                            <a href="/admin/ürünler/@item.ProductId" class="btn btn-primary btn-sm mb-1">Edit</a>
 
-                    </td>
-                </tr>
+                            <form action="/admin/DeleteProductFromCategory" method="POST" style="display: inline;">
+                                <input type="hidden" name="ProductId" value="@item.ProductId">
+                                <input type="hidden" name="categoryId" value="@Model.CategoryId">
+                                    <button type="submit" class="btn btn-danger btn-sm">DeleteCategory</button>
+                            </form>
+
+                        </td>
+                    </tr>
+                }
+        
             }
+            else
+                @await Html.PartialAsync("_noproduct")
         </tbody>
-        </table>
-    }
-    else
-        @await Html.PartialAsync("_noproduct")
+    </table>
         
 </div>
 </div>
@@ -105,4 +112,10 @@
 {
     <script src="/modules/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#productTable').DataTable();
+        } );
+    </script>
 }

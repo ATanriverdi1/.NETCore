@@ -52,7 +52,7 @@ namespace MarketingApp.WebUI.Controllers
                 ModelState.AddModelError("","Lütfen Email hesabınıza gelen link ile hesabınızı onaylayınız.");
                 return View(model);
             }
-            var result = await _signInManager.PasswordSignInAsync(user, model.Password, false, false);
+            var result = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
             if (result.Succeeded)
             {
                 return Redirect(model.ReturnUrl ?? "~/");

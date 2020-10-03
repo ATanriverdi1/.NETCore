@@ -1,0 +1,59 @@
+@model IEnumerable<ApplicationUser>
+
+@section Css{
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+}
+
+@section Scripts{
+    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#userTable').DataTable();
+        } );
+    </script>
+}
+
+<h1>User List</h1>
+<hr>
+<a asp-controller="Admin" asp-action="CreateUser" class="badge badge-primary mb-3">Create User</a>
+
+<table id="userTable" class="table table-bordered">
+    <thead>
+        <tr>
+            
+            <td>FirstName</td>
+            <td>LastName</td>
+            <td>UserName</td>
+            <td>Email</td>
+            <td>EmailConfirmed</td>
+            <td style="width: 150px;"></td>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() > 0)
+        {
+            @foreach (var user in Model)
+            {
+                <tr class="@(user.EmailConfirmed ? "" : "bg-warning")">
+                    <td>@user.Name</td>
+                    <td>@user.LastName</td>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>@user.EmailConfirmed</td>
+                    <td>
+                        <a href="/admin/user/@user.Id" class="btn btn-primary btn-sm mr-2">Edit</a>
+                        
+                        <form asp-controller="admin" asp-action="UserDelete" method="POST" style="display: inline;">
+                            <input type="hidden" name="UserId" value="@user.Id">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+
+                    </td>
+                </tr>
+            }
+        }
+        else
+            @await Html.PartialAsync("_noproduct")
+        
+    </tbody>
+</table>

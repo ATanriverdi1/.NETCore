@@ -1,9 +1,22 @@
 @model ProductListViewModel
 
+@section Css{
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+}
+
+@section Scripts{
+    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#productTable').DataTable();
+        } );
+    </script>
+}
+
 <h1>Admin Products</h1>
 <hr>
 <a asp-controller="admin" asp-action="CreateProduct" class="badge badge-primary mb-3">Yeni Ürün Ekle</a>
-<table class="table table-bordered">
+<table id="productTable" class="table table-bordered">
     <thead>
         <tr>
             <td style="width: 30px;">Id</td>

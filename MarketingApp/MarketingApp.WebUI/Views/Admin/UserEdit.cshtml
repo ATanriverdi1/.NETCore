@@ -1,0 +1,71 @@
+@model UserDetailsModel
+
+<h1 class="h3">Edit Product</h1>
+<hr>
+
+<form asp-controller="Admin" asp-action="UserEdit" method="POST" enctype="multipart/form-data">
+<div asp-validation-summary="All" class="text-danger"></div>  
+  
+<div class="row">
+    
+        <div class="col-md-8">
+
+            <input type="hidden" name="UserId" value="@Model.UserId">
+            
+              <div class="form-group">
+                <label asp-for="FirstName"></label>
+                <input class="form-control" asp-for="FirstName">
+                <span asp-validation-for = "FirstName" class="text-danger"></span>
+              </div>
+
+
+            <div class="form-group">
+                <label asp-for="LastName"></label>
+                <input class="form-control" asp-for="LastName">
+                <span asp-validation-for = "LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UserName"></label>
+                <input class="form-control" asp-for="UserName">
+                <span asp-validation-for = "UserName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input class="form-control" asp-for="Email">
+                <span asp-validation-for = "Email" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </div>
+    
+
+    <div class="col-md-3 ml-4">
+      
+      @foreach (var rolename in ViewBag.Roles)
+      {
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" 
+                name="selectedRoles"
+                value="@rolename"
+                id="@rolename" 
+                @(Model.SelectedRoles.Any( i=> i == rolename) ? "checked" : "")>
+            <label class="custom-control-label" for="@rolename">@rolename</label>
+          </div>
+      }
+
+      <div class="custom-control custom-switch mt-4">
+        <input class="custom-control-input" type="checkbox" asp-for="EmailConfirmed" >
+        <label class="custom-control-label" asp-for="EmailConfirmed"></label>
+      </div>
+
+    </div>
+</div>
+</form>
+
+@section Scripts
+{
+    <script src="/modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}

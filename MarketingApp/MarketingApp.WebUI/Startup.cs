@@ -119,6 +119,27 @@ namespace MarketingApp.WebUI
 
             app.UseEndpoints(endpoints =>
             {
+                //Admin UserList
+                endpoints.MapControllerRoute(
+                    name:"adminuserlist",
+                    pattern:"admin/user/list",
+                    defaults : new {controller="admin", action="UserList"}
+                );
+                
+                //Admin User Create
+                endpoints.MapControllerRoute(
+                    name:"adminusercreate",
+                    pattern:"admin/user/create",
+                    defaults : new {controller="admin", action="CreateUser"}
+                );
+
+                //Admin User Edit
+                endpoints.MapControllerRoute(
+                    name:"adminuseredit",
+                    pattern:"admin/user/{id?}",
+                    defaults : new {controller="admin", action="UserEdit"}
+                );
+
                 //Role List
                 endpoints.MapControllerRoute(
                     name:"adminrolelist",
@@ -136,7 +157,7 @@ namespace MarketingApp.WebUI
                 //AdminRoleEdit
                 endpoints.MapControllerRoute(
                     name:"admincreaterole",
-                    pattern:"admin/role/{id}",
+                    pattern:"admin/role/{id?}",
                     defaults : new {controller="admin", action="RoleEdit"}
                 );
 

@@ -37,9 +37,98 @@ namespace MarketingApp.WebUI.Controllers
             this._userManager = userManager;
         }
 
-        //AdminRole
-        //RoleEdit
+        //UserList        
+        public IActionResult UserList()
+        {
+            return View(_userManager.Users);
+        }
 
+        //UserEdit
+        [HttpGet]
+        public async Task<IActionResult> UserEdit(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                var selectedRoles = await _userManager.GetRolesAsync(user);
+                var roles = _roleManager.Roles.Select(i=>i.Name);
+
+                ViewBag.Roles = roles;
+                return View(new UserDetailsModel{
+                    UserId = user.Id,
+                    FirstName = user.Name,
+                    LastName = user.LastName,
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    EmailConfirmed = user.EmailConfirmed,
+                    SelectedRoles = selectedRoles
+                });
+            }
+            TempData.Put("message", new AlertMessage{
+                    Message="Bu Id ye ait kullanıcı bulunamadı.",
+                    AlertType="danger" 
+                });
+            return Redirect("~/admin/user/list");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UserEdit(UserDetailsModel model, string[] selectedRoles)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByIdAsync(model.UserId);
+                if (user != null)
+                {
+                    user.Name = model.FirstName;
+                    user.LastName = model.LastName;
+                    user.UserName = model.UserName;
+                    user.Email = model.Email;
+                    user.EmailConfirmed = model.EmailConfirmed;
+
+                    var result = await _userManager.UpdateAsync(user);
+                    if (result.Succeeded)
+                    {
+                        var userRoles =  await _userManager.GetRolesAsync(user);
+                        selectedRoles = selectedRoles ?? new string[]{};
+                        await _userManager.AddToRolesAsync(user,selectedRoles.Except(userRoles).ToArray<string>());
+                        await _userManager.RemoveFromRolesAsync(user,userRoles.Except(selectedRoles).ToArray<string>());
+
+                        TempData.Put("message",new AlertMessage{
+                            Message="Kullanıcı güncellendi",
+                            AlertType="warning"
+                        });
+
+                        return Redirect("/admin/user/list");
+                    }
+                    else{
+                        result.Errors.ToList().ForEach(a=> ModelState.AddModelError(a.Code,a.Description));
+                        return View(model);
+                    }
+                }
+            }
+            return View(model);
+        }
+
+        //UserDelete
+        public async Task<IActionResult> UserDelete(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user != null)
+            {
+                var result = await _userManager.DeleteAsync(user);
+                if (result.Succeeded)
+                {
+                    TempData.Put("message", new AlertMessage{
+                        Message = "Kullanıcı kaldırıldı",
+                        AlertType = "danger"
+                    });
+                    return Redirect("~/admin/user/list");
+                }
+            }
+            return Redirect("~/admin/user/list");
+        }
+        
+        //RoleEdit
         [HttpGet]
         public async Task<IActionResult> RoleEdit(string id)
         {
@@ -101,6 +190,7 @@ namespace MarketingApp.WebUI.Controllers
             return View(_roleManager.Roles);
         }
 
+        //Admin Role Create
         [HttpGet]
         public IActionResult CreateRole()
         {
@@ -124,6 +214,29 @@ namespace MarketingApp.WebUI.Controllers
                 }
             }
             return View(model);
+        }
+
+        //Admin RoleDelete
+        public async Task<IActionResult> RoleDelete(string roleId)
+        {
+            var role = await _roleManager.FindByIdAsync(roleId);
+            if (role != null)
+            {
+                var result = await _roleManager.DeleteAsync(role);
+                if (result.Succeeded)
+                {
+                    TempData.Put("message",new AlertMessage{
+                        Message="Role Kaldırıldı",
+                        AlertType="danger"
+                    });
+                    return Redirect("~/admin/role/list");
+                }
+            }
+            TempData.Put("message",new AlertMessage{
+                Message="Bir hata oluştu :(",
+                AlertType="danger"
+            });
+            return Redirect("~/admin/role/list");
         }
 
         //ProductList
