@@ -43,7 +43,7 @@ namespace MarketingApp.Data.Concrete.EfCore
             }
         }
 
-        public void Update(TEntity entity)
+        public virtual void Update(TEntity entity)
         {
             using (var _context = new TContext())
             {

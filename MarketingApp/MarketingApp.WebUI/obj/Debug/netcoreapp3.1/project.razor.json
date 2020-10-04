@@ -14519,6 +14519,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Cart\\Index.cshtml",
+      "TargetPath": "Views\\Cart\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\git\\.NETCore\\MarketingApp\\MarketingApp.WebUI\\Views\\Account\\ResetPassword.cshtml",
       "TargetPath": "Views\\Account\\ResetPassword.cshtml",
       "FileKind": "mvc"

@@ -252,3 +252,4 @@ D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Vi
 D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ErrorPage.cshtml.g.cs
 D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Admin\UserList.cshtml.g.cs
 D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Admin\UserEdit.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Cart\Index.cshtml.g.cs

@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using MarketingApp.Business.Abstract;
 using MarketingApp.WebUI.EmailServices;
 using MarketingApp.WebUI.Extensions;
 using MarketingApp.WebUI.Models;
@@ -17,12 +18,17 @@ namespace MarketingApp.WebUI.Controllers
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
         private IEmailSender _emailSender;
+        private ICartService _cartService;
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IEmailSender emailSender)
+        public AccountController(UserManager<ApplicationUser> userManager,
+                                 SignInManager<ApplicationUser> signInManager, 
+                                 IEmailSender emailSender,
+                                 ICartService cartService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
+            _cartService = cartService;
         }
 
         [HttpGet]
@@ -86,6 +92,7 @@ namespace MarketingApp.WebUI.Controllers
             var result = await _userManager.CreateAsync(applicationUser,model.Password);
             if (result.Succeeded)
             {
+                await _userManager.AddToRoleAsync(applicationUser,"Customers");
                 //generate token
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(applicationUser);
                 var url = Url.Action("ConfirmEmail","Account", new {
@@ -131,6 +138,8 @@ namespace MarketingApp.WebUI.Controllers
                 var result = await _userManager.ConfirmEmailAsync(user,token);
                 if (result.Succeeded)
                 {
+                    // create cart obj.
+                    _cartService.InitializeCart(userId);
                     TempData.Put("message", new AlertMessage{
                         Message="Hesabınız onaylandı.",
                         AlertType="success" 

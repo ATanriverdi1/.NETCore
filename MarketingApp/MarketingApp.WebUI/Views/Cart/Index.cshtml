@@ -1,0 +1,94 @@
+@model CartModel
+
+
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="teext-left">
+            <h4>Ürünler</h4>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Ürün Adı</th>
+                    <th>Fiyat</th>
+                    <th>Adet</th>
+                    <th>Toplam</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.CartItems.Count == 0)
+                {
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="alert alert-warning">
+                                Sepetinizde Ürün Yok.
+                            </div>
+                        </div>
+                    </div>    
+                }
+                else{
+                @foreach (var item in Model.CartItems)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/images/@item.ImageUrl" width="80">
+                        </td>
+                        <td>@item.Name</td>
+                        <td>@item.Price</td>
+                        <td>@item.Quantity</td>
+                        <td>@(item.Quantity*item.Price)</td>
+                        <td>
+                            <form asp-controller="cart" asp-action="DeleteFromCart" method="post">
+                                <input type="hidden" name="productId" value="@item.ProductId">
+                                <button class="btn btn-danger btn-sm">
+                                    <i class="fa fa-times fa-fw"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <div class="teext-left">
+            <h4>Hesap Özeti</h4>
+        </div>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Ürün Toplamı</th>
+                    <td>@Model.TotalPrice().ToString("c")</td>
+                </tr>
+                <tr>
+                    <th>
+                        Kargo
+                    </th>
+                    <td>
+                        ücretsiz
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Sepet Toplamı
+                    </th>
+                    <td>
+                        @Model.TotalPrice().ToString("c")
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a href="/" class="btn btn-primary">
+                <i class="fa fa-arrow-circle-left fa-fw"></i> Alışverişe Devam Et
+            </a>
+            <a href="#" class="btn btn-primary">
+                <i class="fa fa-arrow-circle-right fa-fw"></i> Onayla   
+            </a>
+        </div>
+    </div>
+</div>

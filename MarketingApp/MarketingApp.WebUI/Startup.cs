@@ -35,7 +35,8 @@ namespace MarketingApp.WebUI
             services.AddScoped<ICategoryService,CategoryManager>();
             services.AddScoped<ICategoryRepository,EfCoreCategoryRepository>();
 
-            
+            services.AddScoped<ICartRepository,EfCoreCartRepository>();
+            services.AddScoped<ICartService,CartManager>();
             
             //identity
             services.AddDbContext<ApplicationDbContext>(options=> options.UseSqlite("Data Source = Marketing.db"));
@@ -97,7 +98,11 @@ namespace MarketingApp.WebUI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(  IApplicationBuilder app, 
+                                IWebHostEnvironment env,
+                                IConfiguration configuration,
+                                UserManager<ApplicationUser> userManager, 
+                                RoleManager<IdentityRole> roleManager)
         {
             app.UseStaticFiles(); //wwwroot
 
@@ -119,6 +124,12 @@ namespace MarketingApp.WebUI
 
             app.UseEndpoints(endpoints =>
             {
+                //CartList
+                endpoints.MapControllerRoute(
+                    name:"cartindex",
+                    pattern:"cart",
+                    defaults : new {controller="Cart", action="Index"}
+                );
                 //Admin UserList
                 endpoints.MapControllerRoute(
                     name:"adminuserlist",
@@ -236,6 +247,9 @@ namespace MarketingApp.WebUI
                    pattern:"{controller=Home}/{action=Index}/{id?}"
                );
             });
+        
+            
+            SeedIdentity.Seed(userManager,roleManager,configuration).Wait();
         }
     }
 }
