@@ -239,6 +239,7 @@ namespace MarketingApp.WebUI.Controllers
             return Redirect("~/admin/role/list");
         }
 
+        [NoCacheAtt.NoCache]
         //ProductList
         public IActionResult ProductList()
         {
@@ -384,6 +385,7 @@ namespace MarketingApp.WebUI.Controllers
         //Kategori işlemleri
 
         //Categori List
+        [NoCacheAtt.NoCache]
         public IActionResult CategoryList()
         {
             var categories = new CategoryViewModel(){

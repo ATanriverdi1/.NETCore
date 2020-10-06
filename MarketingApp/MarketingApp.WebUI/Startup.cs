@@ -95,6 +95,7 @@ namespace MarketingApp.WebUI
             //MVC
             services.AddControllersWithViews();
             services.AddMemoryCache();
+            services.AddResponseCaching();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -105,6 +106,7 @@ namespace MarketingApp.WebUI
                                 RoleManager<IdentityRole> roleManager)
         {
             app.UseStaticFiles(); //wwwroot
+            app.UseResponseCaching();
 
             app.UseStaticFiles(new StaticFileOptions{
                 FileProvider = new PhysicalFileProvider(

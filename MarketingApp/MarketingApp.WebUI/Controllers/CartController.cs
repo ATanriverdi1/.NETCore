@@ -20,6 +20,7 @@ namespace MarketingApp.WebUI.Controllers
         }
 
 
+        [NoCacheAtt.NoCache]
         public IActionResult Index()
         {
             var cart = _cartService.GetCartByUserId(_userManager.GetUserId(User));
