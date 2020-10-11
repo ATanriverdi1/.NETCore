@@ -22,3 +22,15 @@ D:\git\.NETCore\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketin
 D:\git\.NETCore\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.csproj.CopyComplete
 D:\git\.NETCore\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.dll
 D:\git\.NETCore\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.pdb
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Data\bin\Debug\netstandard2.0\marketingapp.data.deps.json
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Data\bin\Debug\netstandard2.0\marketingapp.data.dll
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Data\bin\Debug\netstandard2.0\marketingapp.data.pdb
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Data\bin\Debug\netstandard2.0\marketingapp.entity.dll
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Data\bin\Debug\netstandard2.0\marketingapp.entity.pdb
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.csprojAssemblyReference.cache
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.AssemblyInfoInputs.cache
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.AssemblyInfo.cs
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.csproj.CoreCompileInputs.cache
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.csproj.CopyComplete
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.dll
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Data\obj\Debug\netstandard2.0\marketingapp.data.pdb

@@ -1391,11 +1391,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\git\\.NETCore\\MarketingApp\\marketingapp.webui\\MarketingApp.WebUI.csproj",
+      "projectUniqueName": "D:\\git\\.NETCore\\.NETCore\\MarketingApp\\marketingapp.webui\\MarketingApp.WebUI.csproj",
       "projectName": "MarketingApp.WebUI",
-      "projectPath": "D:\\git\\.NETCore\\MarketingApp\\marketingapp.webui\\MarketingApp.WebUI.csproj",
+      "projectPath": "D:\\git\\.NETCore\\.NETCore\\MarketingApp\\marketingapp.webui\\MarketingApp.WebUI.csproj",
       "packagesPath": "C:\\Users\\alihan\\.nuget\\packages\\",
-      "outputPath": "D:\\git\\.NETCore\\MarketingApp\\marketingapp.webui\\obj\\",
+      "outputPath": "D:\\git\\.NETCore\\.NETCore\\MarketingApp\\marketingapp.webui\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alihan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1411,11 +1411,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Business\\marketingapp.Business.csproj": {
-              "projectPath": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Business\\marketingapp.Business.csproj"
+            "D:\\git\\.NETCore\\.NETCore\\MarketingApp\\MarketingApp.Business\\marketingapp.Business.csproj": {
+              "projectPath": "D:\\git\\.NETCore\\.NETCore\\MarketingApp\\MarketingApp.Business\\marketingapp.Business.csproj"
             },
-            "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Data\\marketingapp.data.csproj": {
-              "projectPath": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Data\\marketingapp.data.csproj"
+            "D:\\git\\.NETCore\\.NETCore\\MarketingApp\\MarketingApp.Data\\marketingapp.data.csproj": {
+              "projectPath": "D:\\git\\.NETCore\\.NETCore\\MarketingApp\\MarketingApp.Data\\marketingapp.data.csproj"
             }
           }
         }

@@ -1573,11 +1573,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Data\\marketingapp.data.csproj",
+      "projectUniqueName": "D:\\git\\.NETCore\\.NETCore\\MarketingApp\\MarketingApp.Data\\marketingapp.data.csproj",
       "projectName": "marketingapp.data",
-      "projectPath": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Data\\marketingapp.data.csproj",
+      "projectPath": "D:\\git\\.NETCore\\.NETCore\\MarketingApp\\MarketingApp.Data\\marketingapp.data.csproj",
       "packagesPath": "C:\\Users\\alihan\\.nuget\\packages\\",
-      "outputPath": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Data\\obj\\",
+      "outputPath": "D:\\git\\.NETCore\\.NETCore\\MarketingApp\\MarketingApp.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alihan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1593,8 +1593,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Entity\\marketingapp.entity.csproj": {
-              "projectPath": "D:\\git\\.NETCore\\MarketingApp\\MarketingApp.Entity\\marketingapp.entity.csproj"
+            "D:\\git\\.NETCore\\.NETCore\\MarketingApp\\MarketingApp.Entity\\marketingapp.entity.csproj": {
+              "projectPath": "D:\\git\\.NETCore\\.NETCore\\MarketingApp\\MarketingApp.Entity\\marketingapp.entity.csproj"
             }
           }
         }

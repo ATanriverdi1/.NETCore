@@ -26,3 +26,17 @@ D:\git\.NETCore\MarketingApp\MarketingApp.Business\obj\Debug\netstandard2.0\mark
 D:\git\.NETCore\MarketingApp\MarketingApp.Business\obj\Debug\netstandard2.0\marketingapp.Business.csproj.CopyComplete
 D:\git\.NETCore\MarketingApp\MarketingApp.Business\obj\Debug\netstandard2.0\marketingapp.Business.dll
 D:\git\.NETCore\MarketingApp\MarketingApp.Business\obj\Debug\netstandard2.0\marketingapp.Business.pdb
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Business\bin\Debug\netstandard2.0\marketingapp.Business.deps.json
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Business\bin\Debug\netstandard2.0\marketingapp.Business.dll
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Business\bin\Debug\netstandard2.0\marketingapp.Business.pdb
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Business\bin\Debug\netstandard2.0\marketingapp.data.dll
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Business\bin\Debug\netstandard2.0\marketingapp.entity.dll
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Business\bin\Debug\netstandard2.0\marketingapp.entity.pdb
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Business\bin\Debug\netstandard2.0\marketingapp.data.pdb
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Business\obj\Debug\netstandard2.0\marketingapp.Business.csprojAssemblyReference.cache
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Business\obj\Debug\netstandard2.0\marketingapp.Business.AssemblyInfoInputs.cache
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Business\obj\Debug\netstandard2.0\marketingapp.Business.AssemblyInfo.cs
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Business\obj\Debug\netstandard2.0\marketingapp.Business.csproj.CoreCompileInputs.cache
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Business\obj\Debug\netstandard2.0\marketingapp.Business.csproj.CopyComplete
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Business\obj\Debug\netstandard2.0\marketingapp.Business.dll
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Business\obj\Debug\netstandard2.0\marketingapp.Business.pdb

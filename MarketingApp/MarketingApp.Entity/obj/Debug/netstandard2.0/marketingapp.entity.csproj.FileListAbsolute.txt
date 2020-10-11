@@ -16,3 +16,12 @@ D:\git\.NETCore\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\market
 D:\git\.NETCore\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\marketingapp.entity.csproj.CoreCompileInputs.cache
 D:\git\.NETCore\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\marketingapp.entity.dll
 D:\git\.NETCore\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\marketingapp.entity.pdb
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Entity\bin\Debug\netstandard2.0\marketingapp.entity.deps.json
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Entity\bin\Debug\netstandard2.0\marketingapp.entity.dll
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Entity\bin\Debug\netstandard2.0\marketingapp.entity.pdb
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\marketingapp.entity.csprojAssemblyReference.cache
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\marketingapp.entity.AssemblyInfoInputs.cache
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\marketingapp.entity.AssemblyInfo.cs
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\marketingapp.entity.csproj.CoreCompileInputs.cache
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\marketingapp.entity.dll
+D:\git\.NETCore\.NETCore\MarketingApp\MarketingApp.Entity\obj\Debug\netstandard2.0\marketingapp.entity.pdb
