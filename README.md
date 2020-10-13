@@ -1,2 +1,6 @@
 # .NETCore
-.Net Core exp.
+Used Technologies
+.Net Core
+.MVC Pattern
+.Cache
+.Identity
