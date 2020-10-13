@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarketingApp.Data.Migrations
 {
     [DbContext(typeof(MarketingContext))]
-    [Migration("20201004121140_AddingCartEntities")]
-    partial class AddingCartEntities
+    [Migration("20201012165013_InitialCreated")]
+    partial class InitialCreated
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

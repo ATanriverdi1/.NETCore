@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PRqk7UQ1KRIm+76wPUVyqpADrSlrFKAs2Iw7iq0vLTf7+ZBIjc8E2DGWokMFZ2s0T6KoimqUxd6YnZT6bNQ6vA==",
+  "dgSpecHash": "WI9bKLesOYQIOkmOlcjhdb1775NKkTRkvPOgShGrgIYxYzubGS3nVtUfTNK9IHU09ecLjyzr2bb5xLwqqEIAtw==",
   "success": true,
-  "projectFilePath": "D:\\git\\.NETCore\\.NETCore\\MarketingApp\\marketingapp.webui\\MarketingApp.WebUI.csproj",
+  "projectFilePath": "D:\\git\\.NETCore\\MarketingApp\\marketingapp.webui\\MarketingApp.WebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alihan\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.3\\microsoft.aspnetcore.cryptography.internal.3.1.3.nupkg.sha512",
     "C:\\Users\\alihan\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.3\\microsoft.aspnetcore.cryptography.keyderivation.3.1.3.nupkg.sha512",

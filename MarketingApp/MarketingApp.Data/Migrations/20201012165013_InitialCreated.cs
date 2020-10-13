@@ -2,7 +2,7 @@
 
 namespace MarketingApp.Data.Migrations
 {
-    public partial class AddingCartEntities : Migration
+    public partial class InitialCreated : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
