@@ -89,8 +89,15 @@ using MarketingApp.WebUI.Models.Cart;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "D:\git\.NETCore\MarketingApp\marketingapp.webui\Views\_ViewImports.cshtml"
+using MarketingApp.WebUI.Models.Order;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"34d99fd3d75fae9680d133de1c82327fa30c5454", @"/Views/Shared/_categories.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0b7e5f634072f2c2318173e9959c8fe92a935761", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"71f0db4e6df593abb03f8a406c1e4395bb808269", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__categories : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Category>>
     {
         #pragma warning disable 1998

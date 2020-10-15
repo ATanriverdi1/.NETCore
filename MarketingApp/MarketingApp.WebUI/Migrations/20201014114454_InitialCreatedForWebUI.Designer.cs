@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarketingApp.WebUI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201012165608_InitialCreated")]
-    partial class InitialCreated
+    [Migration("20201014114454_InitialCreatedForWebUI")]
+    partial class InitialCreatedForWebUI
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -80,6 +80,29 @@ namespace MarketingApp.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Comment",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UserId = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    CommentMessage = table.Column<string>(nullable: true),
+                    ReturnUrl = table.Column<string>(nullable: true),
+                    ProductId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comment", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Comment_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "ProductId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProductCategory",
                 columns: table => new
                 {
@@ -114,6 +137,11 @@ namespace MarketingApp.Data.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Comment_ProductId",
+                table: "Comment",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ProductCategory_ProductId",
                 table: "ProductCategory",
                 column: "ProductId");
@@ -123,6 +151,9 @@ namespace MarketingApp.Data.Migrations
         {
             migrationBuilder.DropTable(
                 name: "CartItems");
+
+            migrationBuilder.DropTable(
+                name: "Comment");
 
             migrationBuilder.DropTable(
                 name: "ProductCategory");

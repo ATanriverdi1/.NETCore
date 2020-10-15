@@ -38,3 +38,15 @@
         <p class="p-3">@Html.Raw(Model.Product.Description)</p>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12">       
+        @foreach (var comment in Model.Comments)
+        {
+            @await Html.PartialAsync("_Comment", comment) 
+        }
+        @if (Model.Comments.Count == 0)
+        {
+            @await Html.PartialAsync("_noproduct")
+        }
+    </div>
+</div>

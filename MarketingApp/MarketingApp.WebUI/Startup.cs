@@ -37,6 +37,9 @@ namespace MarketingApp.WebUI
 
             services.AddScoped<ICartRepository,EfCoreCartRepository>();
             services.AddScoped<ICartService,CartManager>();
+
+            services.AddScoped<ICommentRepository, EfCoreCommentRepository>();
+            services.AddScoped<ICommentService, CommentManager>();
             
             //identity
             services.AddDbContext<ApplicationDbContext>(options=> options.UseSqlite("Data Source = Marketing.db"));
@@ -126,6 +129,12 @@ namespace MarketingApp.WebUI
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name:"cartcheckout",
+                    pattern:"checkout",
+                    defaults : new {controller="Cart", action="Checkout"}
+                );
+
                 //CartList
                 endpoints.MapControllerRoute(
                     name:"cartindex",

@@ -21,20 +21,24 @@ namespace MarketingApp.WebUI.Controllers
     [Authorize(Roles="Admin")]
     public class AdminController : Controller
     {
+        private ICommentService _commentService;
         private ICategoryService _categoryService;
         private IProductService _productService;
         private RoleManager<IdentityRole> _roleManager;
         private UserManager<ApplicationUser> _userManager;
+        
 
         public AdminController( IProductService productService, 
                                 ICategoryService categoryService,
                                 RoleManager<IdentityRole> roleManager,
-                                UserManager<ApplicationUser> userManager)
+                                UserManager<ApplicationUser> userManager,
+                                ICommentService commentService)
         {
             this._productService = productService;
             this._categoryService = categoryService;
             this._roleManager = roleManager;
             this._userManager = userManager;
+            this._commentService = commentService;
         }
 
         //UserList        

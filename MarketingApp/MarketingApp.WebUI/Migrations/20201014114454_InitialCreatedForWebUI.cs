@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MarketingApp.WebUI.Migrations
 {
-    public partial class InitialCreated : Migration
+    public partial class InitialCreatedForWebUI : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -71,6 +71,34 @@ namespace MarketingApp.Data.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("MarketingApp.Entity.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CommentMessage")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ReturnUrl")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Comment");
+                });
+
             modelBuilder.Entity("MarketingApp.Entity.Product", b =>
                 {
                     b.Property<int>("ProductId")
@@ -128,6 +156,15 @@ namespace MarketingApp.Data.Migrations
 
                     b.HasOne("MarketingApp.Entity.Product", "Product")
                         .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MarketingApp.Entity.Comment", b =>
+                {
+                    b.HasOne("MarketingApp.Entity.Product", "Product")
+                        .WithMany("Comments")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

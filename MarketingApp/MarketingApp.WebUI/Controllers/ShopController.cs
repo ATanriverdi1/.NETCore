@@ -9,9 +9,11 @@ namespace MarketingApp.WebUI.Controllers
     public class ShopController:Controller
     {
         private IProductService _productService;
+        private ICommentService _commentService;
 
-        public ShopController(IProductService productService)
+        public ShopController(IProductService productService, ICommentService commentService)
         {
+            this._commentService = commentService;
             this._productService = productService;
         }
 
@@ -43,7 +45,9 @@ namespace MarketingApp.WebUI.Controllers
 
             return View(new ProductDetailModel{
                 Product = product,
-                Categories = product.productCategories.Select(i=> i.Category).ToList()
+                Categories = product.productCategories.Select(i=> i.Category).ToList(),
+                Comments = _commentService.GetAll().Where(i=> i.ProductId == product.ProductId).ToList()
+                
             });
         }
 
