@@ -371,3 +371,6 @@ D:\git\.NETCore\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1
 D:\git\.NETCore\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\MarketingApp.WebUI.genruntimeconfig.cache
 D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Cart\Checkout.cshtml.g.cs
 D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Comment.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\bin\Debug\netcoreapp3.1\Iyzipay.dll
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Cart\Success.cshtml.g.cs
+D:\git\.NETCore\MarketingApp\marketingapp.webui\obj\Debug\netcoreapp3.1\Razor\Views\Cart\Orders.cshtml.g.cs

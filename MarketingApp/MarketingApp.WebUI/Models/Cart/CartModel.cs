@@ -6,10 +6,10 @@ namespace MarketingApp.WebUI.Models.Cart
     public class CartModel
     {
         public int CartId { get; set; }
-        public List<CartItemModel> CartItems { get; set; }
+        public List<CartItemModel> CartItemModels { get; set; }
 
         public double TotalPrice(){
-            return CartItems.Sum(i=>i.Price * i.Quantity);
+            return CartItemModels.Sum(i=>i.Price * i.Quantity);
         }
     }
 

@@ -1,45 +1,76 @@
 @model OrderModel
+
 <h1>Checkout</h1>
 <hr>
 <div class="row">
     <div class="col-md-8">
         <h4 class="mb-3">Sipariş Detayı</h4>
-        <form asp-controller="Cart" asp-action="Checkout" method="post">
+        <form asp-controller="Cart" asp-action="Checkout" method="POST">
+            <div asp-validation-summary = "All" class="text-danger"></div>
+            <input type="hidden" name="cartId" value="0">
             <div class="row mb-3">
                 
                 <div class="col-md-6">
-                    <label asp-for="FirstName"></label>
-                    <input asp-for="FirstName" class="form-control">
+                    <label asp-for="@Model.FirstName"></label>
+                    <input asp-for="@Model.FirstName" class="form-control">
                 </div>
                 
                 <div class="col-md-6">
-                    <label asp-for="LastName"></label>
-                    <input asp-for="LastName" class="form-control">
+                    <label asp-for="@Model.LastName"></label>
+                    <input asp-for="@Model.LastName" class="form-control">
                 </div>
            
             </div>
             
             <div class="mb-3">
-                <label asp-for="Address"></label>
-                <textarea asp-for="Address" class="form-control"></textarea>
+                <label asp-for="@Model.Address"></label>
+                <textarea asp-for="@Model.Address" class="form-control"></textarea>
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-4">
-                    <label asp-for="City"></label>
-                    <input asp-for="City" class="form-control">
+                    <label asp-for="@Model.City"></label>
+                    <input asp-for="@Model.City" class="form-control">
                 </div>
                 <div class="col-md-4">
-                    <label asp-for="Phone"></label>
-                    <input asp-for="Phone" class="form-control">
+                    <label asp-for="@Model.Phone"></label>
+                    <input asp-for="@Model.Phone" class="form-control">
                 </div>
                 <div class="col-md-4">
-                    <label asp-for="Email"></label>
-                    <input asp-for="Email" class="form-control">
+                    <label asp-for="@Model.Email"></label>
+                    <input asp-for="@Model.Email" class="form-control">
                 </div>
             </div>
 
+            <h4 class="mb-3">Ödeme Detayı</h4>
             <hr class="mb-3">
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label asp-for="@Model.CardName"></label>
+                    <input asp-for="@Model.CardName" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="@Model.CardNumber"></label>
+                    <input asp-for="@Model.CardNumber" class="form-control">
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label asp-for="@Model.ExpirationMonth"></label>
+                    <input asp-for="@Model.ExpirationMonth" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="@Model.ExpirationYear"></label>
+                    <input asp-for="@Model.ExpirationYear" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="@Model.Cvc"></label>
+                    <input asp-for="@Model.Cvc" class="form-control">
+                </div>
+            </div>
+
             <button type="submit" class="btn btn-primary btn-lg btn-block">Kaydet</button>
 
         </form>
@@ -50,7 +81,7 @@
         </h4>
         <ul class="list-group mb-3">
             
-            @foreach (var item in Model.CartModel.CartItems)
+            @foreach (var item in Model.CartModel.CartItemModels)
             {
                 <li class="list-group-item d-flex justify-content-between">
                     <div>
@@ -67,3 +98,9 @@
         </ul>
     </div>
 </div>
+
+@section Scripts
+{
+    <script src="/modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}

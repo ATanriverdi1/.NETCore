@@ -17,11 +17,19 @@ namespace MarketingApp.Entity
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Note { get; set; }
-
+        public string PaymentId { get; set; }
+        public string ConversationId { get; set; }
+        
+        public EnumPaymentType PaymentType { get; set; }
         public EnumOrderStat OrderStat { get; set; }
         public List<OrderItem> OrderItems { get; set; }
     }
 
+    public enum EnumPaymentType
+    {
+        CreditCard = 0,
+        Eft = 1
+    }
     public enum EnumOrderStat
     {
         waiting = 0,

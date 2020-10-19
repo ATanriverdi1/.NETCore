@@ -231,6 +231,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Iyzipay": {
+              "target": "Package",
+              "version": "[2.1.38, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.3, )"

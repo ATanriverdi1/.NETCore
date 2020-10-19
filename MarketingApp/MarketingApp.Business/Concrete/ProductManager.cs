@@ -45,7 +45,7 @@ namespace MarketingApp.Business.Concrete
 
             productsHome = _productRepository.GeProductstHomePage();
             var memoryCacheEntryOptions = new MemoryCacheEntryOptions();
-            memoryCacheEntryOptions.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1);
+            memoryCacheEntryOptions.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(2);
             _memoryCache.Set("productsHome",productsHome,memoryCacheEntryOptions);
             return productsHome;
         }

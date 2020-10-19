@@ -7,6 +7,15 @@ namespace MarketingApp.Data.Concrete.EfCore
 {
     public class EfCoreCartRepository : EfCoreGenericRepository<Cart, MarketingContext>, ICartRepository
     {
+        public void ClearCart(int cartId)
+        {
+            using (var context = new MarketingContext())
+            {
+                var cmd = @"delete from CartItems where CartId=@p0";
+                context.Database.ExecuteSqlRaw(cmd,cartId);
+            }
+        }
+
         public void DeleteFromCart(int cartId, int productId)
         {
             using (var context = new MarketingContext())

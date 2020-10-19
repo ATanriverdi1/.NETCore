@@ -1,7 +1,10 @@
 using System.Linq;
 using MarketingApp.Business.Abstract;
 using MarketingApp.Entity;
+using MarketingApp.WebUI.Models.identity;
 using MarketingApp.WebUI.ViewModel;
+using MarketingApp.WebUI.ViewModel.Admin;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MarketingApp.WebUI.Controllers
@@ -10,11 +13,13 @@ namespace MarketingApp.WebUI.Controllers
     {
         private IProductService _productService;
         private ICommentService _commentService;
+        private UserManager<ApplicationUser> _userManager;
 
-        public ShopController(IProductService productService, ICommentService commentService)
+        public ShopController(IProductService productService, ICommentService commentService, UserManager<ApplicationUser> userManager)
         {
             this._commentService = commentService;
             this._productService = productService;
+            this._userManager = userManager;
         }
 
         public IActionResult List(string category, int page = 1)

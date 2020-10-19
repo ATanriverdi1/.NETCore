@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WI9bKLesOYQIOkmOlcjhdb1775NKkTRkvPOgShGrgIYxYzubGS3nVtUfTNK9IHU09ecLjyzr2bb5xLwqqEIAtw==",
+  "dgSpecHash": "DrxU8q6HQ8cs2oM44pDE95YWhdpGi3zFcRUAgLs7LtGAStI9/wDKCFAYhsO0CTNzm8AI1wuisrk1TbJoYS2Xhw==",
   "success": true,
   "projectFilePath": "D:\\git\\.NETCore\\MarketingApp\\marketingapp.webui\\MarketingApp.WebUI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\alihan\\.nuget\\packages\\iyzipay\\2.1.38\\iyzipay.2.1.38.nupkg.sha512",
     "C:\\Users\\alihan\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.3\\microsoft.aspnetcore.cryptography.internal.3.1.3.nupkg.sha512",
     "C:\\Users\\alihan\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.3\\microsoft.aspnetcore.cryptography.keyderivation.3.1.3.nupkg.sha512",
     "C:\\Users\\alihan\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.3\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.3.nupkg.sha512",
